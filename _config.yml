@@ -1,1 +1,16 @@
-theme: jekyll-theme-cayman
+name: 素晴らしの世界
+description: Sharing & Coding
+meta_description: "My blog"
+
+markdown: kramdown
+highlighter: pygments
+logo: false
+paginate: 15
+baseurl: /
+domain_name: 'http://github.marktube.io'
+google_analytics: 'UA-XXXXXXXX-X'
+gems: [jekyll-paginate]
+
+# Details for the RSS feed generator
+url:            'http://github.marktube.io'
+author:         'Marktube'
