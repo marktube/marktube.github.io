@@ -5,9 +5,9 @@ date: 2017-03-11 12:30:00
 categories: RaspberryPi
 ---
 
->利用树莓派和PN532模块，可以低成本地完美复制一张M1卡。RFID安全与我们的生活息息相关，从门禁卡到饭卡，dump和写入数据，只需要一个树莓派和一个支持NFC的模块就能完成。
+>利用树莓派和PN532模块，可以低成本地完美复制一张MF1卡。RFID安全与我们的生活息息相关，支持MF1的门禁卡和饭卡，dump和写入数据，只需要一个树莓派和一个支持NFC的模块就能完成。
 
-### RFID和NFC
+##### RFID和NFC
 射频识别RFID（Radio Frequency Identification）技术是一种自动识别技术，它通过射频信号自动识别目标对象并获取相关数据，是推动现代信息服务发展的新兴技术。主要由电子标签（Tag，即应答器）、阅读器（Reader）、计算机数据信息系统三大部分组成。RFID标签可以分为低频(LF)、高频(HF)、超高频(UHF)和微波等不同种类。就技术难度而言，RFID技术的关键部份在标签，特别是无源的电子标签。高频RFID芯片主要指工作频率在13.56MHz的标签芯片，工作在这个频率的标签芯片接口符合ISO/IEC 15693和ISO/IEC 14443A/B等国际标准。
 
 | 频段        | 典型频段                 | 应用领域                        | 产品特点                        |
@@ -21,11 +21,123 @@ categories: RaspberryPi
 | 2.35-2.45GHz| 微波(MW):2.45-5.8GHz     | 工业、科学、医疗                |                                 |
 | 5.8-6.8GHz  |                          | 非管制频段                      |                                 |
 
-### ID卡和Mifare协议
-ID card
 
-### libnfc和针对M1卡的攻击
-Mifare card
+近场通信（Near Field Communication）是属于RFID技术中的一种。是在短距离下的高频RFID技术，见上表中的13MHz系列。最早是索尼和恩智浦一起发布的基于ISO14443非接触式卡协议的无线射频识别技术标准，后面在具体的调整和增强后成为新的标准。
 
-### 树莓派和模块的连接
-Raspberry Pi 
+##### Mifare卡和PN532模块
+Mifare卡是恩智浦（NXP貌似之前是飞利浦的）生产的一系列遵守ISO14443A标准的射频卡。由于Mifare的巨大影响力，业内有时把其它公司生产的遵守ISO14443A标准的射频卡也称为“Mifare”,尤其是Mifare S50卡片，几乎就是ISO14443A标准的代言人。Mifare系列卡片有时也根据卡内使用芯片的不同，Mifare UltraLight称为MF0，Mifare S50和S70称为MF1，Mifare Pro称为MF2，Mifare Desfire称为MF3。Mifare S50有1K字节的容量，所以又称1k卡，Mifare S70有4k字节的容量，所以又称4k卡。1k卡的存储结构如下图：
+
+![1k card](http://image.3001.net/images/20170301/14883779693311.png)
+
+MF1卡本身的加密算法已经被破解了，更多的细节可以查看：
+
+[http://www.cs.ru.nl/~flaviog/publications/Attack.MIFARE.pdf](http://www.cs.ru.nl/~flaviog/publications/Attack.MIFARE.pdf)
+
+[http://www.cs.ru.nl/~flaviog/publications/Dismantling.Mifare.pdf](http://www.cs.ru.nl/~flaviog/publications/Dismantling.Mifare.pdf)
+
+[http://www.cs.ru.nl/~flaviog/publications/Pickpocketing.Mifare.pdf](http://www.cs.ru.nl/~flaviog/publications/Pickpocketing.Mifare.pdf)
+
+现在我们需要的只是一个能够读取和写入MF1卡的读卡器。为了降低成本，当然是选择最便宜的东西了，PN532模块某宝上也就三十多块钱，加个uart转usb的模块也算比较低的了。不过经过我实际测试的结果来看，nfc-list的结果是ISO14443A的标准的卡都可以看到有设备，但是某些钥匙状的门禁和饭卡貌似不能读取到。另外用灯照射卡片会看到里面的线圈形状，长方形的那种貌似很多都可以读到。
+
+##### libnfc和针对Mifare卡的攻击
+libnfc是一个支持用户空间程序获取NFC设备信息的库。可以在github上看到[源码][libnfc_code]。直接在树莓派上下载源码，然后编译安装。但是要注意编译时依赖libusb、libtool、libpcsclite这几个库，所以要提前装上。脚本如下：
+
+{% highlight sh %}
+#!/bin/sh
+
+sudo apt-get install libusb-dev libtool libpcsclite-dev autoconf
+
+wget https://github.com/nfc-tools/libnfc/releases/download/libnfc-1.7.1/libnfc-1.7.1.tar.bz2
+
+tar -jxvf libnfc-1.7.1.tar.bz2
+
+cd libnfc-1.7.1
+
+autoreconf -vis
+
+./configure --with-drivers=all --sysconfdir=/etc --prefix=/usr
+
+make
+
+sudo make install
+
+sudo mkdir /etc/nfc
+
+sudo mkdir /etc/nfc/devices.d
+
+sudo cp contrib/libnfc/pn532_uart_on_rpi.conf.sample /etc/nfc/devices.d/pn532_uart_on_rpi.conf
+
+{% endhighlight %}
+
+因为树莓派3的蓝牙和串口的一些问题，uart接口需要自己在/boot/config中开启，这些会在最后的部分详细说明。
+
+目前针对Mifare卡片的攻击主要有三种方法：
+
+- Nested攻击:
+
+简单地说，就是默认密码攻击。由于M1卡片有16个扇区，在绝大多数情况下16个扇区不一定会同时使用到。于是根据厂商在出厂时预设的密码可能碰撞出其中某一个扇区的密码。由于无源的M1卡每一次刷卡上电的时候，密钥交换采用的随机数都是“有规律”的，用已经碰撞出的某一扇区的密钥去试探其它扇区，在此时根据随机数的规律即可“套”出密码。具体实现可以查看[mfoc](https://github.com/nfc-tools/mfoc)。按照下面的脚本编译和安装在树莓派上：
+{% highlight sh %}
+#!/bin/bash
+
+git clone https://github.com/nfc-tools/mfoc.git
+
+cd mfoc/
+
+autoreconf -vis
+
+./configure
+
+make
+
+sudo make install
+
+{% endhighlight %}
+
+- Darkside攻击:
+
+简单地说就是暴力破解，即爆破出某一个扇区的密钥，之后再使用Nested攻击就能Dump出整张卡。而与通常意义上的暴力破解不同的是，由于M1卡片的认证机制，其会泄露部分认证信息，从而大大加快爆破的进度。具体实现是[mfcuk](https://github.com/nfc-tools/mfcuk)工具，在树莓派上安装脚本如下：
+{% highlight sh %}
+#!/bin/sh
+
+git clone https://github.com/nfc-tools/mfcuk.git
+
+cd mfcuk
+
+autoreconf -vis
+
+./configure
+
+make
+
+sudo make install
+{% endhighlight %}
+
+- 电波嗅探:
+
+顾名思义，即在正常刷卡的时候嗅探卡片与读卡器交换的数据，从而逆向密码。
+这里可以参考2014年BlackHat的[PDF](https://www.blackhat.com/docs/sp-14/materials/arsenal/sp-14-Almeida-Hacking-MIFARE-Classic-Cards-Slides.pdf)。
+
+
+##### 树莓派和模块的连接
+由于这里我是使用Raspberry Pi的UART接口连接PN532，所以只说明这种连接方式。树莓派的GPIO接口图如下：
+![img](../../../../assets/images/rpi-pins-40-0.png)
+这里我选择物理引脚编码为2、6、8、10的引脚，分别用杜邦线连上PN532模块的VCC、GND、RX和TX即可。因为树莓派3的蓝牙集成在了硬件串口上，想要使用uart必须要关闭蓝牙对硬件串口的使用。不然在使用nfc-list命令时，一直会提示找不到NFC设备。所以先用sudo raspi-config进行配置，选择Interface-Options，启用SPI和I2C，禁用Serial。然后sudo nano /boot/config.txt，找到enable_uart=0，改成enable_uart=1，重启树莓派即可。然后使用nfc-list命令就能看到设备了。接下来就可以自己拿mfoc和mfcuk读卡和写卡了。不过有的卡不能改UID，这个貌似是只读区域，但是万能的某宝貌似有可写UID的卡片卖。最后放上我的树莓派和PN532。
+
+![raspi-pn532](../../../../assets/images/raspi-with-pn532.jpg)
+
+
+__以上技术仅用于学习和研究，请勿用于非法用途，一切后果自行承担!__
+
+
+***
+
+###### Reference:
+
+
+[Mifare卡](http://blog.sina.com.cn/s/blog_683b6e4f0102vtfm.html)
+
+[针对Mifare卡片的攻击](http://www.freebuf.com/articles/terminal/128238.html)
+
+[安装libnfc](https://firefart.at/post/how-to-crack-mifare-classic-cards/)
+
+[libnfc_code]: https://github.com/nfc-tools/libnfc
