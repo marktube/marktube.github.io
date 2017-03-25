@@ -22,7 +22,7 @@ $$\frac{\partial C}{\partial b^l_j}=\delta^l_j$$
 $$\frac{\partial C}{\partial \omega^l_{jk}}=a^{l-1}_k\delta^l_j$$
 
 #### Initialnization
-Then we shall initialize those weights as Gaussian random variables with mean 0 and standard deviation \\(\frac1{\sqrt{n_{in}}}\\)
+Then we shall initialize those weights as Gaussian random variables with mean 0 and standard deviation $\frac1{\sqrt{n_{in}}}$
 
 #### Cross-entropy Cost Function
 
@@ -42,8 +42,8 @@ $$\frac{\lambda}{2n}\sum_ww^2$$
 Dropout is a radically different technique for regularization.
 
 #### Hyperparameter
-learining rate \\(\eta\\)
-regularization parameter \\(\lambda\\)
+learining rate $\eta$
+regularization parameter $\lambda$
 mini-batch size
 
 #### Activate Function
