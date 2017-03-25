@@ -7,13 +7,10 @@ highlighter: rouge
 logo: false
 paginate: 15
 baseurl: /
-domain_name: 'http://github.marktube.io'
+domain_name: 'https://github.marktube.io'
 google_analytics: 'UA-XXXXXXXX-X'
 gems: [jekyll-paginate]
-
-# Markdown Processors
-kramdown:    # Better to turn on recognition of Github Flavored Markdown
-  input: GFM
+mathjax: true
 
 # Details for the RSS feed generator
 url:            'http://github.marktube.io'
