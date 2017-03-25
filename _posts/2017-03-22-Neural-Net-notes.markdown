@@ -7,8 +7,6 @@ categories: MachineLearning
 
 > Neural networks, a beautiful biologically-inspired programming paradigm which enables a computer to learn from observational data
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
 #### Perceptron
 
 #### SGD
