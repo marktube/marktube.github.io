@@ -9,7 +9,13 @@ categories: MachineLearning
 
 #### Perceptron
 
+
 #### SGD
+To quantify how well we're achieving this goal we define a cost function:
+$$ 
+C(w,b)=\frac1{2n}\sum_x{\left|y(x)-a \right|^2}
+$$
+Here, w denotes the collection of all weights in the network, b all the biases, n is the total number of training inputs, a is the vector of outputs from the network when x is input, and the sum is over all training inputs, x. Of course, the output a depends on x, w and b, but to keep the notation simple I haven't explicitly indicated this dependence. The notation ‖v‖ just denotes the usual length function for a vector v. We'll call C the quadratic cost function; it's also sometimes known as the mean squared error or just MSE.
 
 #### Back Propagation
 
@@ -75,3 +81,6 @@ relu
 #### LSTM
 
 #### DBN
+
+#### Reference
+[Neural Network And Deep Learning](http://neuralnetworksanddeeplearning.com)
