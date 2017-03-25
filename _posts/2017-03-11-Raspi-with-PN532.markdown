@@ -2,6 +2,7 @@
 layout: post
 title: 在树莓派上用PN532搞事情
 date: 2017-03-11 12:30:00
+disqus: true
 categories: RaspberryPi
 ---
 
