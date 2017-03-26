@@ -8,6 +8,8 @@ categories: MachineLearning
 > Neural networks, a beautiful biologically-inspired programming paradigm which enables a computer to learn from observational data
 
 #### Perceptron
+A perceptron takes several binary inputs, x1,x2,…, and produces a single binary output:
+![Perceptron](../../../../assets/images/perceptron.png)
 
 
 #### SGD
@@ -36,7 +38,7 @@ $$
 $$
 
 #### Initialnization
-Then we shall initialize those weights as Gaussian random variables with mean 0 and standard deviation $ \frac1{\sqrt{n_{in}}} $
+Then we shall initialize those weights as Gaussian random variables with mean 0 and standard deviation $\frac1{\sqrt{n_{in}}}$
 
 #### Cross-entropy Cost Function
 
@@ -62,25 +64,44 @@ $$
 Dropout is a radically different technique for regularization.
 
 #### Hyperparameter
-learining rate $ \eta $
-regularization parameter $ \lambda $
+learining rate $\eta$
+regularization parameter $\lambda$
 mini-batch size
 
 #### Activate Function
-sigmoid
-tanh
-relu
+
+sigmoid: 
+
+$$
+\sigma(z)=\frac1{1+e^{-z}}
+$$
+
+tanh: 
+
+$$
+tanh(z)=\frac{e^z-e^{-z}}{e^z+e^{-z}}
+$$
+
+relu(rectified linear unit): 
+
+$$
+max(0,z)
+$$
 
 #### Gradient Lost
-
+Gradient will change less in front layers.
 
 #### CNN
+Convolutional Neural Network 
 
 #### RNN
+Recurrent Neural Network
 
 #### LSTM
+Long-Short Term Memory Unit
 
 #### DBN
+Deep Belief Network
 
 #### Reference
 [Neural Network And Deep Learning](http://neuralnetworksanddeeplearning.com)
