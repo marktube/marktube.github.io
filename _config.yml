@@ -8,7 +8,7 @@ logo: false
 paginate: 15
 baseurl: /
 domain_name: 'http://github.marktube.io'
-google_analytics: 'UA-XXXXXXXX-X'
+google_analytics: 'UA-96545939-1'
 gems: [jekyll-paginate]
 mathjax: true
 
