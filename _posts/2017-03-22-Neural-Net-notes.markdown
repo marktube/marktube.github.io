@@ -103,5 +103,8 @@ Long-Short Term Memory Unit
 #### DBN
 Deep Belief Network
 
+#### GAN
+Generative Adversarial Networks
+
 #### Reference
 [Neural Network And Deep Learning](http://neuralnetworksanddeeplearning.com)
