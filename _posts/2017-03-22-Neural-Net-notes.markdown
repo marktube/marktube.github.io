@@ -43,7 +43,7 @@ Then we shall initialize those weights as Gaussian random variables with mean 0 
 #### Cross-entropy Cost Function
 
 $$
-C=\frac1n\sum_x[y\ln a+(1-y)\ln(1-a)]
+C=-\frac1n\sum_x[y\ln a+(1-y)\ln(1-a)]
 $$
 
 where n is the total number of items of training data, the sum is over all training inputs , x, and y is the corresponding desired output.
