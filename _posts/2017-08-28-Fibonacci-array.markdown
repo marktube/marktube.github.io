@@ -2,6 +2,7 @@
 layout: post-mathjax
 title: "数学杂记--斐波那契数列通项公式推导"
 date: 2017-08-28 19:07
+disqus: true
 categories: Math
 ---
 
