@@ -7,11 +7,11 @@ highlighter: rouge
 logo: false
 paginate: 15
 baseurl: /
-domain_name: 'http://github.marktube.io'
+domain_name: 'http://marktube.github.io'
 google_analytics: 'UA-96545939-1'
 gems: [jekyll-paginate]
 mathjax: true
 
 # Details for the RSS feed generator
-url:            'http://github.marktube.io'
+url:            'http://marktube.github.io'
 author:         'Marktube'

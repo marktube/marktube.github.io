@@ -1,6 +1,7 @@
 ---
 layout: post-mathjax
 title: "从线性回归到逻辑回归"
+disqus: true
 date: 2017-04-11 15:43
 categories: MachineLearning
 ---
