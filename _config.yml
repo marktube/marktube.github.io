@@ -6,12 +6,12 @@ markdown: kramdown
 highlighter: rouge
 logo: false
 paginate: 15
-baseurl: 'http://marktube.github.io/'
-domain_name: 'http://marktube.github.io'
+baseurl: 'https://marktube.github.io/'
+domain_name: 'https://marktube.github.io'
 google_analytics: 'UA-96545939-1'
 gems: [jekyll-paginate]
 mathjax: true
 
 # Details for the RSS feed generator
-url:            'http://marktube.github.io'
+url:            'https://marktube.github.io'
 author:         'Marktube'
