@@ -6,7 +6,7 @@ markdown: kramdown
 highlighter: rouge
 logo: false
 paginate: 15
-baseurl: /
+baseurl: 'http://marktube.github.io/'
 domain_name: 'http://marktube.github.io'
 google_analytics: 'UA-96545939-1'
 gems: [jekyll-paginate]
