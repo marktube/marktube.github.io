@@ -229,7 +229,8 @@ $$
 and the deviation of $\chi^2(n)$ is 
 
 $$
-\mathrm{D}[\chi^2(n)]=n\mathrm{D}[\chi^2(1)]=n[\mathrm{E}(X^4)-\mathrm{E}(X^2)]=n[\frac1{\sqrt{2\pi}}\int_{-\infty}^{+\infty}x^4\mathrm{e}^{-\frac{x^2}2}\mathrm{d}x-\mathrm{E}(X)^2-\mathrm{D}(X)]=n[3-1]=2n
+\mathrm{D}[\chi^2(n)]=n\mathrm{D}[\chi^2(1)]=n[\mathrm{E}(X^4)-\mathrm{E}(X^2)]= \\ 
+n[\frac1{\sqrt{2\pi}}\int_{-\infty}^{+\infty}x^4\mathrm{e}^{-\frac{x^2}2}\mathrm{d}x-\mathrm{E}(X)^2-\mathrm{D}(X)]=n[3-1]=2n
 $$
 
 . Assume $\chi^2 \sim \chi^2(n)$, for given $0<\alpha<1$, which satisfies the condition:
