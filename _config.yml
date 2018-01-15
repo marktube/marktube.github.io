@@ -1,13 +1,15 @@
 name: 迷いの世界
 description: Sharing & Coding
 meta_description: "My blog"
+permalink: /:year/:month/:day/:title
 
 markdown: kramdown
 highlighter: rouge
+
 logo: false
 paginate: 15
 baseurl: '/'
-domain_name: 'https://marktube.github.io'
+domain_name: 'https://marktube.github.io/'
 google_analytics: 'UA-96545939-1'
 gems: [jekyll-paginate]
 mathjax: true

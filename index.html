@@ -12,6 +12,7 @@ about: 'about.html'
                     <img src="{{ page.logo }}" alt="Blog Logo" />
                 </a>
             {% endif %}
+        {% if page.about %} <a class="back-button" href="{{ site.baseurl }}{{ page.about }}"> About </a> {% endif %}
         <a class="subscribe-button icon-feed" href="{{ site.baseurl }}feed.xml">Subscribe</a>
     </nav>
     <div class="vertical">
@@ -19,19 +20,20 @@ about: 'about.html'
             <h1 class="page-title">{{ site.name }}</h1>
             <h2 class="page-description">
                 {% if site.description %} {{ site.description }}. {% endif %}
-                {% if page.about %} <a href='{{ site.baseurl }}{{ page.about }}'> About me </a> {% endif %}
             </h2>
 	    <center>
-	    <div style="width:300px">
-	      <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=407679291&auto=0&height=32"></iframe>
-	    </div>
+	      <div style="width:300px">
+		<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=407679291&auto=0&height=32"></iframe>
+	      </div>
 	    </center>
         </div>
     </div>
     <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
 </header>
 
+
 <main id="content" class="content" role="main">
+
 
     <div class="extra-pagination inner">
         {% include pagination.html %}
@@ -51,31 +53,14 @@ about: 'about.html'
                 <img class="author-thumb" src="/assets/images/profile.jpg" alt="Author's profile picture" nopin="nopin" />
                 {{ site.author }}
             {% endif %}
-            {% if post.categories.size > 0 %} 
-                {{ post.categories | array_to_sentence_string | prepend: 'on ' }} 
+            {% if post.categories.size > 0 %}
+                {{ post.categories | array_to_sentence_string | prepend: 'on ' }}
             {% endif %}
             <time class="post-date" datetime="{{ post.date | date:"%Y-%m-%d" }}">
                 {{ post.date | date_to_string }}
-            </time> 
+            </time>
         </footer>
     </article>
-
-    <!-- Capser below -->
-<!--     <article class="{{post_class}}">
-    <header class="post-header">
-        <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>{{excerpt words="26"}} <a class="read-more" href="{{url}}">&raquo;</a></p>
-    </section>
-    <footer class="post-meta">
-        {{#if author.image}}<img class="author-thumb" src="{{author.image}}" alt="Author image" nopin="nopin" />{{/if}}
-        {{author}}
-        {{tags prefix=" on "}}
-        <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time>
-    </footer>
-    </article> -->
-    <!--  -->
 
     {% endfor %}
 
