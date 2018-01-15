@@ -15,5 +15,5 @@ gems: [jekyll-paginate]
 mathjax: true
 
 # Details for the RSS feed generator
-url:            '/'
+url:            'https://marktube.github.io/'
 author:         'Marktube'
