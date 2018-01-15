@@ -55,32 +55,14 @@ p{text-indent:2em}
 
         <header class="post-header">
             <h1 class="post-title">{{ page.title }}</h1>
-            <section class="post-meta">
-                <time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time>
+            <section class="post-meta" style="margin-bottom:1em;">
+
                 {% if page.categories.size > 0 %}
                     {{ page.categories | array_to_sentence_string | prepend: 'on ' }}
                 {% endif %}
+                <time class="post-date" datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time>
             </section>
         </header>
-
-<!--         <header class="post-header">
-            <a id="blog-logo" href="{{site.url}}">
-                {% if site.logo %}
-                    <img src="{{site.logo}}" alt="{{ site.name }}" />
-                {% else %}
-                    <span class="blog-title">{{ site.name }}</span>
-                {%endif%}
-            </a>
-        </header> -->
-
-        <!-- <span class="post-meta">
-            <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date_to_string }}</time>
-            {% if page.categories.size > 0 %}
-                {{ page.categories | array_to_sentence_string | prepend: 'on ' }}
-            {% endif %}
-        </span> -->
-
-        <!-- <h1 class="post-title">{{ page.title }}</h1> -->
 
         <section class="post-content">
             {{content}}
@@ -109,7 +91,7 @@ p{text-indent:2em}
                     <h4> {{ site.author }} </h4>
                     <!-- Author Bio -->
                     <p>
-                      一飞冲天，风之积方抟鹏；三献刖足，玉其琢乃成器。
+		      一飞冲天，风之积方抟鹏；三献刖足，玉其琢乃成器。
                     </p>
                 </section>
             {% endif %}
