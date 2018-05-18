@@ -10,7 +10,7 @@ categories: Diary
 
 <center>
 <iframe frameborder="no" border="0" marginwidth="0" marginheigh
-t="0" width="298" height="52" src="http://music.163.com/outchain/player?type=2&amp;id=26111688&amp;auto=1&amp;height=32"> </iframe>
+t="0" width="298" height="52" src="https://music.163.com/outchain/player?type=2&amp;id=26111688&amp;auto=1&amp;height=32"> </iframe>
 </center>
 
 2017年4月14日，来到深圳之后的第一个春天，我仍然记得去年来时，九州港海面上那恍眼的浓雾，还有如那雾一样扑朔迷离的未来。今天回忆起那时深圳，所剩的景色也只有高高矗立的楼宇和繁忙的都市，以及像花一样绽放的年轻人忙碌的身影。深圳的春天似乎和其它的季节没有什么不同，尤其对于每天坐在办公室coding的人来说，真正能感受到的，只剩下所褪去衣物的厚重了。周五的下午，赶在人流如织的高峰时段前，我离开了工作了十个月的地方，远远地听到了不知道哪里的地方在响著汪峰的《春天里》。
