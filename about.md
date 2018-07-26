@@ -3,7 +3,7 @@ layout: page
 title: MaRkTuBe 
 ---
 
-When you look long into an abyss, the abyss looks into you.
+When you look long into an abyss, the abyss gazes into you.
 
 Visit [My Github][addr] to view more.
 
