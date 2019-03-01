@@ -118,7 +118,7 @@ KKT条件的推导，其实可以看作是对函数$L(x,\lambda_i,\mu_j)​$求�
   $$ \max_{x}\min_{\lambda_i\le0,\mu_j}L(x^*,\lambda_i^*,\mu_j^*)=\min_{\lambda_i\le0,\mu_j}\max_{x}L(x^*,\lambda_i^*,\mu_j^*)
   $$
   
-  ，则此时$x^*,\lambda_i^* ,\mu_j^* $是最优解
+  ，则此时$x^* ,\lambda_i^* ,\mu_j^* $是最优解
 
 - 强对偶性
   假设$f(x),g_i(x)$均为凸函数，$h_j(x)$为仿射函数，且不等式约束$g_i(x)>0$严格可行，则原问题和对偶问题均有最优解，且它们的最优解目标函数相等
