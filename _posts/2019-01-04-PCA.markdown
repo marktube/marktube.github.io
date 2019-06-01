@@ -30,7 +30,20 @@ categories: Machine Learning
 
 #### Proof
 
-给定样本集$X=\{\mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_n\},\, \mathbf{x}_i \in R^d$，求投影矩阵$P_{m\times d}(1\le m<d)$，使得通过投影$\mathbf{y}_i=P(\mathbf{x}_i-\mu),\,\mu=\frac1n\sum_{i=1}^n \mathbf{x}_i$重构出的样本$\mathbf{\hat x}_i=P^T\mathbf{y}_i$的误差最小，即最小化$e=\sum_{i=1}^n \Vert (\mathbf{x_i}-\mu)-\mathbf{\hat x}_i \Vert^2$。此处先用重建误差最小来推导，后面会看到具体的形式上的一致。这里样本减去均值再投影，目的是将样本空间的原点移动到均值点，然后再投影，如下图
+给定样本集
+
+$$
+X= \lbrace \mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_n \rbrace , \, \mathbf{x}_i \in R^d
+$$
+
+，求投影矩阵$P_{m \times d} \, (1 \le m<d)$，使得通过投影
+$\mathbf{y}_i=P(\mathbf{x}_i-\mu)$重构出的样本$\mathbf{\hat x}_i=P^T\mathbf{y}_i$的误差最小，即最小化
+
+$$
+e=\sum_{i=1}^n \Vert (\mathbf{x_i}-\mu)-\mathbf{\hat x}_i \Vert^2
+$$
+
+。此处先用重建误差最小来推导，后面会看到具体的形式上的一致。这里样本减去均值$\mu=\frac1n\sum_{i=1}^n \mathbf{x}_i$再投影，目的是将样本空间的原点移动到均值点，然后再投影，如下图
 
 ![1559268457436](../../../../assets/images/1559268457436.png)
 
