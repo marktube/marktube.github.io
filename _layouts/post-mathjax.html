@@ -20,10 +20,12 @@ post_class: post-template
       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
       processEscapes: true
     },
-	"HTML-CSS": {
+    "HTML-CSS": {
       availableFonts: ["STIX", "TeX"], //可选字体
-	  webFont: "STIX-Web",
-      showMathMenu: false //关闭右击菜单显示
+	  webFont: "STIX",
+      showMathMenu: true, //关闭右击菜单显示
+      linebreaks: { automatic: true, width: "94%container" },
+      imageFont: null
     }
   });
 </script>
@@ -45,7 +47,7 @@ post_class: post-template
     });
 </script>
 
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script>
 
 </header>
 
