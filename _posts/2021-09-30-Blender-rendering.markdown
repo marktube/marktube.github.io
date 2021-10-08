@@ -8,6 +8,9 @@ categories: Tools
 
 > siggraph asia 2021 fast forward 记录~
 
+           
+
+
 ### 基本操作
 
 最重要的是需要先开启根据软件操作获得python代码的选项！！！在Edit-Preference-Python Tooltips中勾选上，这样任何操作就能在Scripting页上看到对应的python代码了。接下来有一些常用快捷键：
