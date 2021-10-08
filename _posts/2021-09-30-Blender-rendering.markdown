@@ -8,8 +8,7 @@ categories: Tools
 
 > siggraph asia 2021 fast forward 记录~
 
-           
-
+记录一下制作Siggraph Asia 2021的Fast Forward视频制作过程，主要使用Blender来渲染点云以及模型，也许以后用得上。
 
 ### 基本操作
 
