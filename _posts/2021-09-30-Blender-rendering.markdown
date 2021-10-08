@@ -25,7 +25,6 @@ python代码里主要的几个模块如下：
   用于访问Blender的内部数据，包含确定对象形状和位置的所有数据
 
 其它的就对照Python Tooltips来慢慢摸索就好啦。下面代码是相机绕点云旋转的代码：
-
 ```python
 # Create a circle curve first
 bpy.ops.curve.primitive_bezier_circle_add(radius=10, enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
@@ -45,11 +44,8 @@ bpy.context.object.data.lens = 96
 ```
 
 
-
 ### 点云可视化
-
 这次我需要渲染一个8K的点云，每个点云需要有不同的颜色。大致思路是，将每个点渲染成一个球形，blender中使用Icosphere类型，然后给球赋材质。现有插件[ Point Cloud Visualizer](https://github.com/uhlik/bpy)转换后的点云无法满足要求，python代码如下：
-
 ```python
 # 读取自定义ply文件
 def loadClusterPly(fn):
@@ -121,15 +117,11 @@ if __name__ == '__main__':
     import math
     bpy.context.object.rotation_euler[0]=math.pi/2)
 ```
-
 实测在创建到2K左右个点时就变得比较慢了，界面操作也变得卡。但是选择所有的球合并mesh后就丝滑得多了。所以这里代码后面加入了选择与合并的部分，而且保存了工程文件。跑代码的时候就可以休息一下，干饭喝茶去啦。
 
 
-
 ### 创建圆柱
-
 blender中原本就有圆柱，但是创建的python api太难控制，需要设置圆柱中心和旋转。而我这里是知道圆柱的底面和顶面圆心坐标，所以选择用Bezier Curve来创建圆柱轴线，然后改变线段的粗细，代码如下：
-
 ```python
 # 读取skeleton文件并且去重
 def loadSkel(fn):
@@ -252,11 +244,8 @@ if __name__ == '__main__':
 ```
 
 
-
 ### 纯白背景和阴影
-
 blender背景默认都是灰色，有时候需要纯白的背景，而且底面和背景需要都是纯白的，新手一上来可能都懵了，不知道怎么弄。经过我几天的摸索，终于找到了办法。大致思路就是，首先用Cycles渲染物体和阴影，并设置透明背景，代码如下：
-
 ```python
 # Create plane to catch shadow
 bpy.ops.mesh.primitive_plane_add(size=10, enter_editmode=False, align='WORLD', location=(0, 0, -0.8955), scale=(1, 1, 1))
@@ -271,32 +260,20 @@ bpy.context.scene.render.image_settings.file_format = 'FFMPEG'
 bpy.context.scene.render.ffmpeg.format = 'QUICKTIME'
 bpy.context.scene.render.filepath = out_path
 ```
-
-，然后再加上纯白背景如下图：
-
+然后再加上纯白背景如下图：
 ![blender_alpha_over](../../../../assets/images/blender1.PNG)
-
 对应python代码比较复杂，就请根据以上操作自行查询了。
 
 
-
 ### 视频编辑
-
 打开Video Editing，可以直接把视频拖到Sequencer中。然后可以在右下角调整属性。图片和音频也可以加上。可以选中视频按Shift+A, 添加Effect Strip-Speed Control来改变播放速度。
 
 
-
 ### Reference
-
 以下排名不分先后^_^
 
-
-http://ziyedy.top/page/blender-python-script-basic.html
-
-https://zhuanlan.zhihu.com/p/106406087
-
-https://blender.stackexchange.com/questions/5898/how-can-i-create-a-cylinder-linking-two-points-with-python
-
-https://zhuanlan.zhihu.com/p/106667405
-
-https://www.bilibili.com/video/BV1Kp4y1W7X4
+[1](http://ziyedy.top/page/blender-python-script-basic.html)
+[2](https://zhuanlan.zhihu.com/p/106406087)
+[3](https://blender.stackexchange.com/questions/5898/how-can-i-create-a-cylinder-linking-two-points-with-python)
+[4](https://zhuanlan.zhihu.com/p/106667405)
+[5](https://www.bilibili.com/video/BV1Kp4y1W7X4)
