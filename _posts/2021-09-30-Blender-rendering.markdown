@@ -6,9 +6,7 @@ disqus: true
 categories: Tools
 ---
 
-> siggraph asia 2021 fast forward 记录
-
-记录一下制作Siggraph Asia 2021的Fast Forward视频制作过程，主要使用Blender来渲染点云以及模型，也许以后用得上。
+>记录一下制作Siggraph Asia 2021的Fast Forward视频制作过程，主要使用Blender来渲染点云以及模型，也许以后用得上。
 
 ### 基本操作
 
@@ -295,15 +293,15 @@ bpy.context.scene.render.filepath = out_path
 以下排名不分先后^_^
 
 
-[基本操作](http://ziyedy.top/page/blender-python-script-basic.html)
+http://ziyedy.top/page/blender-python-script-basic.html
 
-[官方文档翻译](https://zhuanlan.zhihu.com/p/106406087)
+https://zhuanlan.zhihu.com/p/106406087
 
-[创建圆柱](https://blender.stackexchange.com/questions/5898/how-can-i-create-a-cylinder-linking-two-points-with-python)
+https://blender.stackexchange.com/questions/5898/how-can-i-create-a-cylinder-linking-two-points-with-python
 
-[创意编程](https://zhuanlan.zhihu.com/p/106667405)
+https://zhuanlan.zhihu.com/p/106667405
 
-[相机旋转](https://www.bilibili.com/video/BV1Kp4y1W7X4)
+https://www.bilibili.com/video/BV1Kp4y1W7X4
 
 
 
