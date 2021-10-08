@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 用Blender渲染SIGGRAPH_ASIA的Fast_Forward
+title: "用Blender渲染SIGGRAPH ASIA的Fast Forward"
 date: 2021-09-30 09:15
 disqus: true
 categories: Tools
@@ -300,10 +300,3 @@ https://blender.stackexchange.com/questions/5898/how-can-i-create-a-cylinder-lin
 https://zhuanlan.zhihu.com/p/106667405
 
 https://www.bilibili.com/video/BV1Kp4y1W7X4
-
-
-
-
-
-
-
