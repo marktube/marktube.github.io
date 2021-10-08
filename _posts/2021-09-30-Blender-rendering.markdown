@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "用Blender渲染SIGGRAPH ASIA的Fast Forward"
-date: 2021-09-30 9:15
+date: 2021-09-30 09:15
 disqus: true
 categories: Tools
 ---
 
-> siggraph asia 2021 fast forward 记录~
+> siggraph asia 2021 fast forward 记录
 
 记录一下制作Siggraph Asia 2021的Fast Forward视频制作过程，主要使用Blender来渲染点云以及模型，也许以后用得上。
 
@@ -22,14 +22,11 @@ categories: Tools
 - 其它请去看[魔性的blender快捷键之歌](https://www.bilibili.com/video/BV1fE41177et/)
 
 python代码里主要的几个模块如下：
-
- - bpy.ops: 对于操纵3D对象，最重要的两个类是bpy.ops.object和bpy.ops.mesh。Object类包含用于同时操作多个选定对象的函数以及许多常规实用程序。Mesh类包含用于一次操作一个对象的顶点、边和面的函数
-
- - bpy.context: context（正文）是blender数据管理中的一个全局变量集合，它包含了目前被选择的和激活的（物体的两种属性状态）的物体的信息，还记录了当前物体的编辑模式
-   用于按各种状态条件访问 Blender 的对象和区域（如用户选定的对象），用于将我们指向对象组（即`bpy.context`类将生成对`bpy.data`类的数据块的引用）
-
- - bpy.data: blender界面上所有可使用调节的对象内容（包括mesh模型、lamp灯光、camera摄像机，material材质等）都在python中以特定的类型存储起来
-   用于访问Blender的内部数据，包含确定对象形状和位置的所有数据
+- bpy.ops: 对于操纵3D对象，最重要的两个类是bpy.ops.object和bpy.ops.mesh。Object类包含用于同时操作多个选定对象的函数以及许多常规实用程序。Mesh类包含用于一次操作一个对象的顶点、边和面的函数
+- bpy.context: context（正文）是blender数据管理中的一个全局变量集合，它包含了目前被选择的和激活的（物体的两种属性状态）的物体的信息，还记录了当前物体的编辑模式
+  用于按各种状态条件访问 Blender 的对象和区域（如用户选定的对象），用于将我们指向对象组（即`bpy.context`类将生成对`bpy.data`类的数据块的引用）
+- bpy.data: blender界面上所有可使用调节的对象内容（包括mesh模型、lamp灯光、camera摄像机，material材质等）都在python中以特定的类型存储起来
+  用于访问Blender的内部数据，包含确定对象形状和位置的所有数据
 
 其它的就对照Python Tooltips来慢慢摸索就好啦。下面代码是相机绕点云旋转的代码：
 
