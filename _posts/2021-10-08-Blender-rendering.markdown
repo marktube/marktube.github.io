@@ -2,7 +2,7 @@
 layout: post
 title: "用Blender渲染SIGGRAPH ASIA的Fast Forward"
 date: 2021-10-08 22:15
-disqus: true
+disqus: false
 categories: Tools
 ---
 
