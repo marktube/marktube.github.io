@@ -294,15 +294,16 @@ bpy.context.scene.render.filepath = out_path
 
 以下排名不分先后^_^
 
-http://ziyedy.top/page/blender-python-script-basic.html
 
-https://zhuanlan.zhihu.com/p/106406087
+[基本操作](http://ziyedy.top/page/blender-python-script-basic.html)
 
-https://blender.stackexchange.com/questions/5898/how-can-i-create-a-cylinder-linking-two-points-with-python
+[官方文档翻译](https://zhuanlan.zhihu.com/p/106406087)
 
-https://zhuanlan.zhihu.com/p/106667405
+[创建圆柱](https://blender.stackexchange.com/questions/5898/how-can-i-create-a-cylinder-linking-two-points-with-python)
 
-https://www.bilibili.com/video/BV1Kp4y1W7X4
+[创意编程](https://zhuanlan.zhihu.com/p/106667405)
+
+[相机旋转](https://www.bilibili.com/video/BV1Kp4y1W7X4)
 
 
 
