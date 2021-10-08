@@ -1,6 +1,6 @@
 ---
-layout: post-mathjax
-title: 用Blender渲染SIGGRAPH ASIA的Fast Forward
+layout: post
+title: 用Blender渲染SIGGRAPH_ASIA的Fast_Forward
 date: 2021-09-30 09:15
 disqus: true
 categories: Tools
@@ -8,12 +8,8 @@ categories: Tools
 
 > 记录一下制作Siggraph Asia 2021的Fast Forward视频制作过程，主要使用Blender来渲染点云以及模型，也许以后用得上。
 
-
-
 ### 基本操作
-
 最重要的是需要先开启根据软件操作获得python代码的选项！！！在Edit-Preference-Python Tooltips中勾选上，这样任何操作就能在Scripting页上看到对应的python代码了。接下来有一些常用快捷键：
-
 - A = 全选
 - Shift + A = 新建物体(Add)
 - 选择物体 + G = 跟随鼠标移动(Grab?)
