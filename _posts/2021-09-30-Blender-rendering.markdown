@@ -1,12 +1,10 @@
-
 ---
 layout: post
 title: "用Blender渲染SIGGRAPH ASIA的Fast Forward"
-date: 2021-10-7 9:15
+date: 2021-09-30 9:15
 disqus: true
 categories: Tools
 ---
-
 
 > siggraph asia 2021 fast forward 记录~
 
