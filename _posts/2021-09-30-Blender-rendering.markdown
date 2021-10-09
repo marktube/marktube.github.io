@@ -8,8 +8,7 @@ categories: Computer Graphics
 
 > 记录一下制作Siggraph Asia 2021的Fast Forward视频制作过程，主要使用Blender来渲染点云以及模型，也许以后用得上。
 
-
-##### 基本操作
+### 基本操作
 最重要的是需要先开启根据软件操作获得python代码的选项！！！在Edit-Preference-Python Tooltips中勾选上，这样任何操作就能在Scripting页上看到对应的python代码了。接下来有一些常用快捷键：
 - A = 全选
 - Shift + A = 新建物体(Add)
@@ -43,7 +42,7 @@ bpy.context.object.data.lens = 96
 ```
 
 
-##### 点云可视化
+### 点云可视化
 这次我需要渲染一个8K的点云，每个点云需要有不同的颜色。大致思路是，将每个点渲染成一个球形，blender中使用Icosphere类型，然后给球赋材质。现有插件[ Point Cloud Visualizer](https://github.com/uhlik/bpy)转换后的点云无法满足要求，python代码如下：
 ```python
 # 读取自定义ply文件
@@ -119,7 +118,7 @@ if __name__ == '__main__':
 实测在创建到2K左右个点时就变得比较慢了，界面操作也变得卡。但是选择所有的球合并mesh后就丝滑得多了。所以这里代码后面加入了选择与合并的部分，而且保存了工程文件。跑代码的时候就可以休息一下，干饭喝茶去啦。
 
 
-##### 创建圆柱
+### 创建圆柱
 blender中原本就有圆柱，但是创建的python api太难控制，需要设置圆柱中心和旋转。而我这里是知道圆柱的底面和顶面圆心坐标，所以选择用Bezier Curve来创建圆柱轴线，然后改变线段的粗细，代码如下：
 ```python
 # 读取skeleton文件并且去重
@@ -243,7 +242,7 @@ if __name__ == '__main__':
 ```
 
 
-##### 纯白背景和阴影
+### 纯白背景和阴影
 blender背景默认都是灰色，有时候需要纯白的背景，而且底面和背景需要都是纯白的，新手一上来可能都懵了，不知道怎么弄。经过我几天的摸索，终于找到了办法。大致思路就是，首先用Cycles渲染物体和阴影，并设置透明背景，代码如下：
 ```python
 # Create plane to catch shadow
@@ -264,11 +263,13 @@ bpy.context.scene.render.filepath = out_path
 对应python代码比较复杂，就请根据以上操作自行查询了。
 
 
-##### 视频编辑
-打开Video Editing，可以直接把视频拖到Sequencer中。然后可以在右下角调整属性。图片和音频也可以加上。可以选中视频按Shift+A, 添加Effect Strip-Speed Control来改变播放速度。
+### 视频编辑
+打开Video Editing，可以直接把视频拖到Sequencer中。然后可以在右下角调整属性。图片和音频也可以加上。可以选中视频按Shift+A, 添加Effect Strip-Speed Control来改变播放速度。视频配音使用了TTS服务，自己写好script然后通过[Notevibes](https://notevibes.com/)转换成mp3添加到视频中就可以了。其他的平台像google和微软也都有TTS服务，但是都要信用卡信息。最后来看看效果吧：
+
+<iframe src="//player.bilibili.com/player.html?aid=378390365&bvid=BV1wf4y1c7DG&cid=422308366&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 
-##### Reference
+### Reference
 以下排名不分先后^_^
 
 [http://ziyedy.top/page/blender-python-script-basic.html](http://ziyedy.top/page/blender-python-script-basic.html)
