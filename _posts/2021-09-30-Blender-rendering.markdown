@@ -10,7 +10,7 @@ categories: Computer Graphics
 
 先看看渲染的视频吧，求个一键三连～
 
-<iframe src="//player.bilibili.com/player.html?aid=378390365&amp;bvid=BV1wf4y1c7DG&amp;cid=422308366&amp;page=1" width="720px" height="540px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=378390365&amp;bvid=BV1wf4y1c7DG&amp;cid=422308366&amp;page=1" width="100%" height="540px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ### 基本操作
 最重要的是需要先开启根据软件操作获得python代码的选项！！！在Edit-Preference-Python Tooltips中勾选上，这样任何操作就能在Scripting页上看到对应的python代码了。接下来有一些常用快捷键：
