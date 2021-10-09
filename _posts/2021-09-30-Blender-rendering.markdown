@@ -8,6 +8,10 @@ categories: Computer Graphics
 
 > 记录一下制作Siggraph Asia 2021的Fast Forward视频制作过程，主要使用Blender来渲染点云以及模型，也许以后用得上。
 
+先看看渲染的视频吧，求个一键三连～
+
+<iframe src="//player.bilibili.com/player.html?aid=378390365&amp;bvid=BV1wf4y1c7DG&amp;cid=422308366&amp;page=1" width="960px" height="540px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 ### 基本操作
 最重要的是需要先开启根据软件操作获得python代码的选项！！！在Edit-Preference-Python Tooltips中勾选上，这样任何操作就能在Scripting页上看到对应的python代码了。接下来有一些常用快捷键：
 - A = 全选
@@ -264,9 +268,7 @@ bpy.context.scene.render.filepath = out_path
 
 
 ### 视频编辑
-打开Video Editing，可以直接把视频拖到Sequencer中。然后可以在右下角调整属性。图片和音频也可以加上。可以选中视频按Shift+A, 添加Effect Strip-Speed Control来改变播放速度。视频配音使用了TTS服务，自己写好script然后通过[Notevibes](https://notevibes.com/)转换成mp3添加到视频中就可以了。其他的平台像google和微软也都有TTS服务，但是都要信用卡信息。最后来看看效果吧：
-
-<iframe src="//player.bilibili.com/player.html?aid=378390365&bvid=BV1wf4y1c7DG&cid=422308366&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+打开Video Editing，可以直接把视频拖到Sequencer中。然后可以在右下角调整属性。图片和音频也可以加上。可以选中视频按Shift+A, 添加Effect Strip-Speed Control来改变播放速度。视频配音使用了TTS服务，自己写好script然后通过[Notevibes](https://notevibes.com/)转换成mp3添加到视频中就可以了。其他的平台像google和微软也都有TTS服务，但是都要信用卡信息。。。。。。
 
 
 ### Reference
