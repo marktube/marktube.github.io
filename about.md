@@ -1,6 +1,6 @@
 ---
-layout: default
-title: 
+layout: page
+title: MaRkTuBe Homepage
 ---
 
 <table style="width: 100%; float: left; margin: 20;" border="0" cellpadding="20" align="center">
