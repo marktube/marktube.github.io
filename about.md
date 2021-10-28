@@ -17,6 +17,6 @@ title: MaRkTuBe Homepage
 			<a href="https://marktube.github.io">[Blog]</a>                    
 		</p>
 		</td> 
-		<td style="width: 30%"><img src="../../../assets/images/profile.jpg" width="160" height="220"> 
+		<td style="width: 30%"><img src="../../../assets/images/profile2.jpg" width="160" height="220"> 
 	</td></tr></tbody>
 </table>
