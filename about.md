@@ -59,3 +59,18 @@ title:
 		<td style="width: 30%"><img src="../../../assets/images/profile2.jpg" width="160" height="220"> 
 	</td></tr></tbody>
 </table>
+
+
+
+## <font color="#e55451">Biography</font>
+
+I am a Ph.D. Candidate in the  [National Laboratory of Pattern Recognition(NLPR)](http://nlpr-web.ia.ac.cn/), [Institute of Automation, Chinese Academy of Sciences(CASIA)](http://english.ia.cas.cn/) advised by Prof. [Xiaopeng Zhang](http://people.ucas.ac.cn/~zhangxiaopeng?language=en) and [Jianwei Guo](http://jianweiguo.net/). 
+
+I received my bachelor's degree from [Sun Yat-Sen University(SYSU)](http://www.sysu.edu.cn/) in 2016. My research area includes deep learning and computer graphics, my research interest focus on 3D computer vision, geometric modeling and geometry learning.
+
+
+
+## <font color="#e55451">News</font>
+
+- 08/2021: One paper accepted by **SIGGRAPH ASIA 2021**
+
