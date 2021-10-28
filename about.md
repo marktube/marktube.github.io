@@ -60,7 +60,7 @@ title:
 	</td></tr></tbody>
 </table>
 
-
+<section style="margin-left:1em;margin-right:1em">
 
 ## <font color="#e55451">Biography</font>
 
@@ -74,3 +74,4 @@ I received my bachelor's degree from [Sun Yat-Sen University(SYSU)](http://www.s
 
 - 08/2021: One paper accepted by **SIGGRAPH ASIA 2021**
 
+</section>
