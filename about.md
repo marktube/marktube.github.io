@@ -56,7 +56,7 @@ title:
 			<a href="https://marktube.github.io">[Blog]</a>                    
 		</p>
 		</td> 
-		<td style="width: 30%"><img src="../../../assets/images/profile2.jpg" width="160" height="220"> 
+		<td style="width: 30%"><img src="../../../assets/images/profile2.jpg" width="100%"> 
 	</td></tr></tbody>
 </table>
 
@@ -79,7 +79,7 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
 
 <table style="width: 100%;">
     <tr>
-	<img style="border-width: 10; margin: 20;" src="https://raw.githubusercontent.com/marktube/TreePartNet/main/TreePartNet.png" width="100%">
+	<img style="border-width: 10; margin: 20;" src="https://vcc.tech/upload/image/20210906/20210906112449_812.png" width="100%">
     </tr>
     <tr style="width: 100%; margin: 20;">
     <center>
