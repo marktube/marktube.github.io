@@ -18,24 +18,33 @@ post_class: post-template
   MathJax.Hub.Config({
     tex2jax: {
       inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
     },
     "HTML-CSS": {
       availableFonts: ["STIX", "TeX"], //可选字体
-	  webFont: "STIX",
+      webFont: "STIX",
       showMathMenu: true, //关闭右击菜单显示
       linebreaks: { automatic: true, width: "94%container" },
-      imageFont: null
+      imageFont: null,
+      matchFontHeight: true
+    },
+    SVG: {
+      matchFontHeight: true
     }
   });
 </script>
 
 <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
+    TeX: {
+        TagSide: "right"，
+        equationNumbers: { 
+            autoNumber: "AMS",
+            useLabelIds: true
+        },
+        Macros: {}
+    }
 </script>
 
 <script type="text/x-mathjax-config">
