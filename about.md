@@ -84,13 +84,15 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
 		<p><strong>TreePartNet:Neural Decomposition of Point Clouds for 3D Tree Reconstruction</strong>
             <br> 
             <em> ACM Transactions on Graphics (Proceedings of <span style="color: #A93226;">SIGGRAPH ASIA 2021</span>)</em>
-            <br><strong>Yanchao Liu</strong>, 
+            <br>
+	    <br><strong>Yanchao Liu</strong>, 
             <a href="http://jianweiguo.net/">Jianwei Guo</a>, 
             <a href="http://hpcg.purdue.edu/bbenes/">Bedrich Benes</a>,
             <a href="https://www.cgmi.uni-konstanz.de/">Oliver Deussen</a>,
             <a href="http://people.ucas.ac.cn/~zhangxiaopeng?language=en">Xiaopeng Zhang</a>,
             <a href="https://vcc.tech/~huihuang">Hui Huang</a>.
             <br>
+	    <br>
             <a href="https://vcc.tech/research/2021/TreePartNet">[Project Page]</a>&nbsp;
 			<a href="https://vcc.tech/file/upload_file//image/research/att202109301259/TreePartNet.pdf">[PDF]</a>&nbsp;
 			<a href="https://github.com/marktube/TreePartNet">[Code &amp; Data]</a>&nbsp; 
