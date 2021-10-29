@@ -27,27 +27,12 @@ post_class: post-template
       webFont: "STIX",
       showMathMenu: true, //关闭右击菜单显示
       linebreaks: { automatic: true, width: "94%container" },
-      imageFont: null,
-      matchFontHeight: true
-    },
-    SVG: {
-      matchFontHeight: true
+      matchFontHeight: true,
+      imageFont: null
     }
   });
 </script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    TeX: {
-        TagSide: "right"，
-        equationNumbers: { 
-            autoNumber: "AMS",
-            useLabelIds: true
-        },
-        Macros: {}
-    }
-    });
-</script>
 
 <script type="text/x-mathjax-config">
     MathJax.Hub.Queue(function() {
@@ -58,7 +43,8 @@ post_class: post-template
     });
 </script>
 
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG"></script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 </header>
 
