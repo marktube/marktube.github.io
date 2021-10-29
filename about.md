@@ -77,29 +77,32 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
 
 ## <font color="#2b547e">Publications</font>
 
-<table style="width: 100%;">			
-    <tbody><!--neurips--><tr>
-	<td style="width: 30%;"><img style="border-width: 10; margin: 20;" src="https://raw.githubusercontent.com/marktube/TreePartNet/main/TreePartNet.png" width="300" height="175"></td>
-	<td style="width: 70%; margin: 20;" cellpadding="10">
-		<p><strong>TreePartNet:Neural Decomposition of Point Clouds for 3D Tree Reconstruction</strong>
+<table style="width: 100%;">
+    <tr>
+	<img style="border-width: 10; margin: 20;" src="https://raw.githubusercontent.com/marktube/TreePartNet/main/TreePartNet.png" width="100%">
+    </tr>
+    <tr style="width: 100%; margin: 20;">
+    <center>
+    <!--<td style="width: 100%; margin: 20;" cellpadding="10" align="center">-->
+	    <p><strong>TreePartNet:Neural Decomposition of Point Clouds for 3D Tree Reconstruction</strong>
             <br> 
             <em> ACM Transactions on Graphics (Proceedings of <span style="color: #A93226;">SIGGRAPH ASIA 2021</span>)</em>
-            <br>
-	    <br><strong>Yanchao Liu</strong>, 
+            <br><strong>Yanchao Liu</strong>, 
             <a href="http://jianweiguo.net/">Jianwei Guo</a>, 
             <a href="http://hpcg.purdue.edu/bbenes/">Bedrich Benes</a>,
             <a href="https://www.cgmi.uni-konstanz.de/">Oliver Deussen</a>,
             <a href="http://people.ucas.ac.cn/~zhangxiaopeng?language=en">Xiaopeng Zhang</a>,
             <a href="https://vcc.tech/~huihuang">Hui Huang</a>.
             <br>
-	    <br>
             <a href="https://vcc.tech/research/2021/TreePartNet">[Project Page]</a>&nbsp;
 			<a href="https://vcc.tech/file/upload_file//image/research/att202109301259/TreePartNet.pdf">[PDF]</a>&nbsp;
 			<a href="https://github.com/marktube/TreePartNet">[Code &amp; Data]</a>&nbsp; 
             <a href="https://www.bilibili.com/video/BV1wf4y1c7DG?share_source=copy_web">[Video]</a>&nbsp;
-		</p>
-		<p> </p>
-	</td></tr></tbody>
+	    </p>
+	    <p> </p>
+	<!--</td>-->
+    </center>
+    </tr>
 </table>
 
 
