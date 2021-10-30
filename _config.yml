@@ -11,7 +11,7 @@ paginate: 15
 baseurl: '/'
 domain_name: 'https://marktube.github.io/'
 google_analytics: 'UA-96545939-1'
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 mathjax: true
 
 # Details for the RSS feed generator
