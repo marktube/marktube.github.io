@@ -42,8 +42,9 @@ title:
 	      }
 </style>
 
+<div style="overflow-x:auto;">
 <table style="width: 100%" border="0" cellpadding="20" align="center">
-	<tbody><tr><td style="width: 70%;" valign="right">
+	<tbody><tr><td style="width: 50%;background-color: white;" valign="right">
 		<h1 style="text-align: right;" align="center"><heading>Yanchao Liu | 刘彦超</heading></h1>
 		<p style="text-align: right;" align="justify">&nbsp;</p>
 		<p style="text-align: right;" align="justify">Ph.D. candidate
@@ -56,10 +57,10 @@ title:
 			<a href="https://marktube.github.io">[Blog]</a>                    
 		</p>
 		</td> 
-		<td style="width: 30%"><img src="../../../assets/images/profile2.jpg" width="100%"> 
+		<td style="width: 50%;background-color: white;"><img src="../../../assets/images/profile2.jpg" height="300px"> 
 	</td></tr></tbody>
 </table>
-
+</div>
 
 ## <font color="#e55451">Biography</font>
 
