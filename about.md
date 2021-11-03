@@ -64,7 +64,7 @@ title:
 
 ## <font color="#e55451">Biography</font>
 
-I am a Ph.D. Candidate in the  [National Laboratory of Pattern Recognition(NLPR)](http://nlpr-web.ia.ac.cn/), [Institute of Automation, Chinese Academy of Sciences(CASIA)](http://english.ia.cas.cn/) advised by Prof. [Xiaopeng Zhang](http://people.ucas.ac.cn/~zhangxiaopeng?language=en) and [Jianwei Guo](http://jianweiguo.net/). 
+I am a Ph.D. Candidate in the  [National Laboratory of Pattern Recognition(NLPR)](http://nlpr-web.ia.ac.cn/), [Institute of Automation, Chinese Academy of Sciences(CASIA)](http://english.ia.cas.cn/) supervised by Prof. [Xiaopeng Zhang](http://people.ucas.ac.cn/~zhangxiaopeng?language=en) and [Jianwei Guo](http://jianweiguo.net/). 
 
 I received my bachelor's degree from [Sun Yat-Sen University(SYSU)](http://www.sysu.edu.cn/) in 2016. My research area includes deep learning and computer graphics, my research interest focus on 3D computer vision, geometric modeling and geometry learning.
 
@@ -109,7 +109,7 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
 
 ## <font color="#2b547e">Internship Experiences</font>
 
-- 10/2019-06/2021 Intern in [Visual Computing Research Center of Shenzhen University](https://vcc.tech/index.html)
+- 10/2019-06/2021 Intern in [Visual Computing Research Center of Shenzhen University](https://vcc.tech/index.html) supervised by Prof.[Huang](https://vcc.tech/~huihuang)
 - 07/2016-04/2017 Assitant information security engineer in DJI Innovation Technology
 
 
