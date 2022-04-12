@@ -73,6 +73,7 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
 
 ## <font color="#e55451">News</font>
 
+- 04/2022: One paper submitted to **IEEE Transactions on Visualization and Computer Graphics**(under review)
 - 08/2021: One paper accepted by **SIGGRAPH ASIA 2021**
 
 
