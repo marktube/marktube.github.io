@@ -115,6 +115,7 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
 
 
 ## <font color="#2b547e">Public Review</font>
+[ CVRVT2022“XR+智慧城市”技术论坛三：动态仿真技术分论坛通知](https://mp.weixin.qq.com/s?__biz=MzI4OTgwMDQ4OQ==&mid=2247484175&idx=3&sn=14d95b7852aafb8b7a89a715a2a35bea&chksm=ec28eb49db5f625f5245610dfb7f32ec0fadf2bbd6e0d5afda3570cbd18f4708f21e7f5d7128&mpshare=1&scene=1&srcid=0418tgOlrVrYbLVhgUsNgDFv&sharer_sharetime=1650276601107&sharer_shareid=d9030c1172ccd5f667dbcbf407160068&exportkey=A4fUEwhnThfrIg4HZDPs1Wc%3D&acctmode=0&pass_ticket=bUdT6vLfnDVURIDojw1QMQvSxAxkfyNDYt%2F4veDacOSyoUpWFbjEmrEAcYyvPvO9&wx_header=0#rd)
 
 [【论文一起读】TreePartNet: 用于三维树木重建的点云智能解构TreePartNet: 用于三维树木重建的点云智能解构](https://mp.weixin.qq.com/s?__biz=Mzg3ODY2NDI1OA==&mid=2247483729&idx=4&sn=8152fd28d1cdfe376bcb9a4c53de1897&chksm=cf110e7cf866876a6f17cf8a80e5609780e638bf35773bbe0b9e0a0387f51d79785f5485b9dc&token=1491705954&lang=zh_CN#rd)
 
