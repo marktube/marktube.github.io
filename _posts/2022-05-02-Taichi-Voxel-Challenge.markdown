@@ -31,17 +31,21 @@ categories: Computer Graphics
 ![butterfly curve](https://github.com/marktube/marktube.github.io/raw/master/assets/images/butterfly_curve.png)
 
 曲线方程为：
+
 $$
 r = e^{\sin{\theta}}-2\cos{4\theta}+\sin^5{\frac{2\theta-\pi}{24}},\,\theta\in [0,21\pi]
 $$
+
 第二个，爱心曲线：
 
 ![heart curve](https://github.com/marktube/marktube.github.io/raw/master/assets/images/heart_curve.png)
 
 曲线方程为：
+
 $$
 r = 3 - 3 \sin\theta + \frac{\sin\theta \sqrt{\lvert\cos\theta\rvert}}{\sin\theta+1.6},\,\theta\in[0,2\pi]
 $$
+
 第三个，大家都熟悉的二维高斯分布：
 
 ![gaussian2d](https://github.com/marktube/marktube.github.io/raw/master/assets/images/gaussian2d.png)
@@ -53,6 +57,7 @@ $$
 ![flower curve](https://github.com/marktube/marktube.github.io/raw/master/assets/images/flower_curve.png)
 
 曲线方程为：
+
 $$
 r=\sin{4\theta},\,\theta\in[0,2\pi]
 $$
@@ -63,21 +68,27 @@ $$
 ![sqrt_x2_y2](https://github.com/marktube/marktube.github.io/raw/master/assets/images/sqrt_x2_y2.png)
 
 曲面方程为：
+
 $$
 z=\sqrt{x^2+y^2}
 $$
+
 注意一下比赛中坐标系是y轴朝上哦。另外，无聊的话可以试着调整一下各个函数里面的数字，用matlab或者python画出来看看有什么不一样。
 
 ### 转
 
 有了这些曲线或者曲面之后，我们能做什么呢？之前看过[斯坦福的图形学几何处理算法的课件](http://graphics.stanford.edu/courses/cs468-10-fall/LectureSlides/04_Surface_Reconstruction.pdf)里面介绍的隐式表达，也就是符号距离函数（SDF=Signed Distance Function）。对于一个简单的单位球面来说，这个球的方程是：
+
 $$
 x^2+y^2+z^2=1
 $$
+
 为了区分空间中任意一点是在球体内部还是外部，我们可以构造一个函数：
+
 $$
 f(x,y,z)=x^2+y^2+z^2-1
 $$
+
 当$f(x_0,y_0,z_0)<0$时这一点$(x_0,y_0,z_0)$在球的内部。为了画出这个球，可以用几个循环来遍历体素空间中的所有点，把所有点的坐标放进这个符号距离函数中，判断点是否在球内，若是则画出该方块。
 
 有了以上的思路，只需要把上面的曲线或曲面方程转化为SDF就行，同时注意体素空间大小，可以加个包围盒，在包围盒空间中画方块。但是也需要对体素空间坐标进行缩放和位移，到SDF对应的坐标空间，然后再进行内外的判断。在画之前也可以加入位移和旋转达到对应的效果，位移可以直接加法，旋转具体可以看taichi.rotate3d函数。
@@ -100,9 +111,9 @@ $$
 
 最后来随意说说感想吧。数学是十分优雅和简洁的工具，艺术和数学看起来好像风马牛不相及，其实却是一衣带水，不信请看达芬奇。$128^3$看起来很大，其实也很小，所以我就直接把floor设置成大海的颜色啦。光线的设置上，“晓”的时间应该不能太亮，就把光调低了，然后为了突出蝴蝶，把蝴蝶的色块改成了光源。庄周梦蝶是大家耳熟能详的典故，所以一开始也是想围绕这个题材进行创作。加入山、海、云这些宏大的意象，然后和微小的蝴蝶放在一起，体现出一种物哀美学，“寄蜉蝣于天地，渺沧海之一粟”。远处的太阳被替换成小心心似乎提醒这是梦（~~好了，我编不下去了~~）。
 
-最后祝大家都能在比赛中玩得开心，希望我的博客也能给大家带来一些新的思路。如果有问题也可以继续讨论。后续如果有时间的话，考虑把山改成高斯混合模型，再给大家整个活，酒醉的蝴蝶安排上～
+最后祝大家都能在比赛中玩得开心，希望我的博客也能给大家带来一些新的思路。我的表达可能有些疏漏，仅代表个人观点，如果有问题可以继续讨论。后续如果有时间的话，考虑把山改成高斯混合模型，再给大家整个活，酒醉的蝴蝶安排上～
+
 
 
 
 ”若知是梦何须醒,不比真如一相会。“
-
