@@ -73,6 +73,7 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
 
 ## <font color="#e55451">News</font>
 
+- 06/2022: Become a member of **CSIG(China Society of Image and Graphics)**
 - 04/2022: One paper submitted to **IEEE Transactions on Visualization and Computer Graphics**(under review)
 - 08/2021: One paper accepted by **SIGGRAPH ASIA 2021**
 
@@ -124,6 +125,4 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
 
 ## <font color="#2b547e">Awards</font>
 
-+ Nov. 2014 3rd Prize, Individual Creative Award of School Technology Carnival of SYSU
-+ Nov. 2014 3rd Prize, Independent Innovation and Development Final of Intermediate Practical Training of SYSU
-+ May. 2015 Top 50, National Youth Application Entrepreneurship Competition Guangdong Regional
++ May. 2022 Awarded as merit student, Institute of Artificial Intelligence, UCAS
