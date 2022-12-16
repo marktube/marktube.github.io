@@ -73,6 +73,9 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
 
 ## <font color="#e55451">News</font>
 
+- 12/2022: One paper accepted by **IEEE Transactions on Visualization and Computer Graphics**
+- 11/2022: Revieved minor revision of paper previously submitted to **IEEE Transactions on Visualization and Computer Graphics**
+- 10/2022: Recieved major revision of paper previously submitted to **IEEE Transactions on Visualization and Computer Graphics**
 - 06/2022: Become a member of **CSIG(China Society of Image and Graphics)**
 - 04/2022: One paper submitted to **IEEE Transactions on Visualization and Computer Graphics**(under review)
 - 08/2021: One paper accepted by **SIGGRAPH ASIA 2021**
@@ -101,6 +104,29 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
 			<a href="https://vcc.tech/file/upload_file//image/research/att202109301259/TreePartNet.pdf">[PDF]</a>&nbsp;
 			<a href="https://github.com/marktube/TreePartNet">[Code &amp; Data]</a>&nbsp; 
             <a href="https://www.bilibili.com/video/BV1wf4y1c7DG?share_source=copy_web">[Video]</a>&nbsp;
+	    </p>
+	    <p> </p>
+	<!--</td>-->
+    </center>
+    </tr>
+    <tr>
+	<img style="border-width: 10; margin: 20;" src="https://vcc.tech/upload/image/20210906/20210906112449_812.png" width="100%">
+    </tr>
+    <tr style="width: 100%; margin: 20;">
+    <center>
+    <!--<td style="width: 100%; margin: 20;" cellpadding="10" align="center">-->
+	    <p><strong>Line-based 3D Building Abstraction and Polygonal Surface Reconstruction from Images</strong>
+            <br> 
+            <em> IEEE Transactions on Visualization and Computer Graphics (TVCG)</em>
+            <br> 
+            <a href="http://jianweiguo.net/">Jianwei Guo*</a>, 
+            <strong>Yanchao Liu*</strong>,
+            <text>Xin Song</text>,
+            <text>Haoyu Liu</text>,
+            <a href="http://people.ucas.ac.cn/~zhangxiaopeng?language=en">Xiaopeng Zhang</a>,
+            <a href="https://people.ucas.ac.cn/~chengzhanglin">Zhanglin Cheng</a>.
+            <br>
+	    <text>*Joint first authors with equal contribution(*共同一作)</text>
 	    </p>
 	    <p> </p>
 	<!--</td>-->
