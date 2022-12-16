@@ -85,7 +85,7 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
 
 <table style="width: 100%;">
     <tr>
-	<img style="border-width: 10; margin: 20;" src="https://vcc.tech/upload/image/20210906/20210906112449_812.png" width="100%">
+	<img style="border-width: 10; margin: 20;" src="../../../assets/images/treepartnet_papershow.PNG" width="100%">
     </tr>
     <tr style="width: 100%; margin: 20;">
     <center>
@@ -110,7 +110,7 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
     </center>
     </tr>
     <tr>
-	<img style="border-width: 10; margin: 20;" src="https://vcc.tech/upload/image/20210906/20210906112449_812.png" width="100%">
+	<img style="border-width: 10; margin: 20;" src="../../../assets/images/Line_based_recons_papershow.PNG" width="100%">
     </tr>
     <tr style="width: 100%; margin: 20;">
     <center>
