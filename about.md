@@ -73,7 +73,7 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
 
 ## <font color="#e55451">News</font>
 
-- 12/2022: One paper accepted by **Computational Visual Media 2022**
+- 12/2022: One paper accepted by **Computational Visual Media 2023**
 - 12/2022: One paper accepted by **IEEE Transactions on Visualization and Computer Graphics**
 - 11/2022: Revieved minor revision of paper previously submitted to **IEEE Transactions on Visualization and Computer Graphics**
 - 08/2022: Recieved major revision of paper previously submitted to **IEEE Transactions on Visualization and Computer Graphics**
@@ -141,7 +141,7 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
     <!--<td style="width: 100%; margin: 20;" cellpadding="10" align="center">-->
 	    <p><strong>PuzzleNet: Boundary-Aware Feature Matching for Non-overlapping 3D Point Clouds Assembly</strong>
             <br> 
-            <em> Computational Visual Media (CVM) 2022 recommended to Journal of Computer Science & Technology (JCST)</em>
+            <em> Computational Visual Media (CVM) 2023 recommended to Journal of Computer Science & Technology (JCST)</em>
             <br>
 	    <text>Haoyu Liu</text>,
             <a href="http://jianweiguo.net/">Jianwei Guo</a>, 
