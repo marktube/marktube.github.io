@@ -64,11 +64,9 @@ title:
 
 ## <font color="#e55451">Biography</font>
 
-I am a Ph.D. Candidate in the  [National Laboratory of Pattern Recognition(NLPR)](http://nlpr-web.ia.ac.cn/), [Institute of Automation, Chinese Academy of Sciences(CASIA)](http://english.ia.cas.cn/) supervised by Prof. [Xiaopeng Zhang](http://people.ucas.ac.cn/~zhangxiaopeng?language=en) and [Jianwei Guo](http://jianweiguo.net/). 
+I am a Ph.D. graduated from the  [National Laboratory of Pattern Recognition(NLPR)](http://nlpr-web.ia.ac.cn/), [Institute of Automation, Chinese Academy of Sciences(CASIA)](http://english.ia.cas.cn/) supervised by Prof. [Xiaopeng Zhang](http://people.ucas.ac.cn/~zhangxiaopeng?language=en) and [Jianwei Guo](http://jianweiguo.net/). 
 
 I received my bachelor's degree from [Sun Yat-Sen University(SYSU)](http://www.sysu.edu.cn/) in 2016. My research area includes deep learning and computer graphics, my research interest focus on 3D computer vision, geometric modeling and geometry learning.
-
-Worship hacker and geek. Love math, music and art. Always pursue an elegant way to meet the requirements. Super nerd who loves terminal, Linux and OS X and enjoys to customize all of the development environment. Interested in devising a better problem-solving method for challenging tasks, and learning new technologies and tools.
 
 
 ## <font color="#e55451">News</font>
@@ -128,6 +126,9 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
             <a href="https://people.ucas.ac.cn/~chengzhanglin">Zhanglin Cheng</a>.
             <br>
 	    <text>*Joint first authors with equal contribution(*共同一作)</text>
+            <br>
+            <a href="https://ieeexplore.ieee.org/document/9992129">[Page]</a>&nbsp;
+	    <a href="https://github.com/marktube/Line2Plane">[Code]</a>&nbsp;
 	    </p>
 	    <p> </p>
 	<!--</td>-->
@@ -150,6 +151,8 @@ Worship hacker and geek. Love math, music and art. Always pursue an elegant way 
             <a href="http://people.ucas.ac.cn/~zhangxiaopeng?language=en">Xiaopeng Zhang</a>,
             <a href="https://people.ucas.ac.cn/~dmyan">Dong-Ming Yan</a>.
             <br>
+	    <a href="https://jcst.ict.ac.cn/EN/10.1007/s11390-023-3127-8">[Page]</a>&nbsp; 
+            <a href="https://github.com/Gibbs-liu/PuzzleNet">[Code &amp; Data]</a>&nbsp; 
 	    </p>
 	    <p> </p>
 	<!--</td>-->
