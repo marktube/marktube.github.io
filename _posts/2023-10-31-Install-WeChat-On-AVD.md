@@ -8,6 +8,10 @@ categories: Android
 
 > ~~我太难了~~
 
+<center>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=2097627772&auto=1&height=66"></iframe>
+</center>
+
 ### Gossip
 
 因为看到了一个[微信模块](https://github.com/Xposed-Modules-Repo/com.fkzhang.wechatxposed)有各种神奇操作，于是突发奇想要去试一试。但是我手头上又没有安卓机，于是想起了本科课程移动软件开发，当时还下载过[Android Studio](https://developer.android.com/studio/archive?hl=zh-cn)搞安卓开发，里面有一个虚拟机可以很好地玩耍，于是爬坑之路开始了。。。
