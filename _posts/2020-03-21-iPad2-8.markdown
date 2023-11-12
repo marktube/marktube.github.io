@@ -1,0 +1,100 @@
+---
+layout: post
+title: "iPad2降级8.4.1"
+date: 2020-03-21 22:11
+disqus: true
+categories: iOS
+---
+
+> 降级iOS8.4.1，梦回2015！
+
+
+
+<center>
+  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=247936&auto=1&height=66"></iframe>
+</center>
+
+
+
+最近因为疫情原因，一直没有开学。拿iPad2看论文、查资料，感觉iOS9.3.5实在是卡，于是打算降级。在论坛搜索了一下，全部都是2017和2018年的帖子，里面的操作基本上都是改版本号到6.3.1然后OTA升级到iOS8.4.1。然而目前苹果已经关闭了iOS8.4.1的更新渠道，此法已经行不通了。论坛上搜索还有通过CoolBooter双分区来降级安装，红 v助手之类。我ipad2本身就是16G的，再分区就没容量了，红v助手那个感觉成功率比较低，于是选择用github上的脚本[32bit-OTA-Downgrader](https://github.com/LukeZGD/32bit-OTA-Downgrader)来降级。
+
+#### 越狱
+
+1. 下载安装Phoenix.ipa
+
+   因为我当前的版本为iOS9.3.5，所以选择[Phoenix](https://phoenixpwn.com)越狱。首先下载ipa，然后用[Cydia Impactor](http://www.cydiaimpactor.com)进行签名安装。但是，Cydia Imactor好像因为苹果服务器那边修改不能用了，从去年12月份就有问题，提示“listDevice：...... provision.cpp:81”。被这个问题整了好久，终于找到[iOS App Signer](https://github.com/DanTheMan827/ios-app-signer)这个神器，在Xcode中创建一个iPad的helloworld安装到iPad2上，然后用这个helloworld的证书去签名Phoenix.ipa，成功装上。再吐槽下苹果的iTunes，阉割了ipa的Appstore和安装，最后我还是用Xcode装上的。
+   
+2. 越狱安装OpenSSH
+
+   有了上一步的铺垫之后就很简单了，在设置通用里信任证书，然后打开Phoenix应用，点击越狱就行。完成之后打开Cydia，搜索OpenSSH安装就OK了。
+
+
+
+#### 降级
+
+因为仓库推荐在Ubuntu下进行操作，我直接切换到Ubuntu18.04系统，USB把iPad2连电脑，然后`git clone https://github.com/LukeZGD/32bit-OTA-Downgrader.git`到本地。打开在终端`cd`到下载脚本的文件夹，输入命令`chmod +x restore.sh`，再直接`./restore.sh`运行就可以了。中间会要求输入iPad的IP地址，必须保证电脑和iPad2在同一局域网而且能`ssh`连上。再吐槽下小米路由器，竟然局域网内不能ssh另一台电脑，坑！搜了一下要把加密方式改成WPA2，不然会有AP隔离。然后看着脚本提示输入就OK了。
+
+![11584849842](../../../../assets/images/11584849842_pic.jpg)
+
+![1158484842](../../../../assets/images/21584849843_pic_hd.jpg)
+
+![1158484942](../../../../assets/images/31584849843_pic_hd.jpg)
+
+![11584849842](../../../../assets/images/41584849844_pic_hd.jpg)
+
+![1584849842](../../../../assets/images/51584849845_pic_hd.jpg)
+
+![114849842](../../../../assets/images/61584849846_pic_hd.jpg)
+
+
+
+#### 应用支持
+
+可以通过Appstore下载的有
+
+- Bilibili 5.34最后一版不半屏播放更流畅
+- 网易云音乐 1.6.2
+- 淘宝
+- 京东
+- 饿了么
+- 企业微信
+
+不能通过Appstore下载的有
+
+- QQ HD 7.3.1版本可通过同步推助手下载
+- 微信 一直限制老版本登录，我下载了6.7.4版本在越狱机器上修改Wechat.app目录下所有的6.7.4版本号替换为当前最新版本号，然后用微信号和密码登录
+- Workflow 1.7.4最后一版支持iOS8
+- Shadowrocket 不支持iOS8依赖iOS9 network extention
+- Surge 不支持iOS8依赖iOS9 network extention
+- Alook浏览器 不支持iOS8依赖iOS9 network extention
+- Quantumult X不支持iOS8依赖iOS9 network extention 1.0.3版本加入了共享检测限制
+
+其它通过越狱安装即可。越狱用到Etason-RC5.ipa，可以自行搜索下载，目前可用的Cydia源有
+
+- 贴吧源 http://apt.cydiaba.cn
+- 雷锋源 http://apt.abcydia.com
+- 多米诺骨牌源 http://apt.wxhbts.com
+- Karen/あけみ's repo http://cydia.angelxwind.net Appsync官方源
+
+越狱后必装
+
+- AFC2
+- Appsync
+- Filza 可以用来安装ipa
+- App Admin 可以选择降级应用版本
+- GBA4iOS GBA模拟器有2.0.4版本可以支持iOS8
+
+Procreate可用版本为2.1。pp助手好像已经跪了，可以试试用3utools代替。
+
+#### 其它共享应用渠道
+
+其它旧版本越狱应用可以去[Appcake](https://iphonecake.com)上去看看，提醒一下这些非官方来源的app都有风险，是否安装请自己选择，后果自己承担。
+
+- [kzddck](https://kzddck.cn/)
+- WhiteApple 微信公众号
+- 兰博游戏 微信公众号
+- [知网PRO](https://ios.ifoum.com/)
+- Phone阁 蜜蜂源 微信小程序
+- [草蜢资源站](https://www.cmboy.com/)
+- [AneeoBlog](https://aneeo.com/ios)
+
