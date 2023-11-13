@@ -37,7 +37,7 @@ categories: Computer
   ```bash
   $ chmod +x ~/.vnc/xstartup
   $ vncserver :2 -depth 24 -geometry 1920x1080 -localhost
-  $ ssh -L 59000:localhost:5901 -C -N -l sammy your_server_ip
+  $ ssh -L 59000:localhost:5901 -C -N -l your_username your_server_ip
   ```
 
   If you are using PuTTY to connect to your server, you can create an SSH tunnel by right-clicking on the top bar of the terminal window, and then clicking the **Change Settings…** option. Find the **Connection** branch in the tree menu on the left-hand side of the PuTTY Reconfiguration window. Expand the **SSH** branch and click on **Tunnels**. On the **Options controlling SSH port forwarding** screen, enter `59000` as the **Source Port** and `localhost:5902` as the **Destination**. Then click the **Add** button, and then the **Apply** button to implement the tunnel. Once the tunnel is running, use a VNC client to connect to `localhost:59000`. You’ll be prompted to authenticate using the password you set in Step 1.
