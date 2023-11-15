@@ -392,6 +392,14 @@ table td {
     border-top: #EFEFEF 1px solid;
 }
 
+.tip_td_class {
+    padding: 8px
+    line-height: 20px;
+    text-align: center;
+    vertical-align: center;
+    border-top: #EFEFEF 1px solid;
+}
+
 table th { color: #000; }
 
 table caption + thead tr:first-child th,
