@@ -248,6 +248,13 @@ p, ul, ol, dl {
     margin: 0 0 1.75em 0;
 }
 
+.p_tip_class {
+    font-family: 'Roboto',sans-serif;
+    font-size: 18px;
+    font-style: bold;
+    color: #FF6666
+}
+
 ol, ul {
     padding-left: 3rem;
 }
