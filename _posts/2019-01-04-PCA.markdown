@@ -3,7 +3,7 @@ layout: post-mathjax
 title: "主成分分析(PCA)相关推导"
 date: 2019-01-04 16:47
 disqus: true
-categories: Machine Learning
+categories: Machine&nbsp;Learning
 ---
 
 > 我一直不知道特征值有什么用，直到我(~~的膝盖中了一箭~~)学了PCA

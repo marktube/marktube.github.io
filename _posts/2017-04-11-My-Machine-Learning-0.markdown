@@ -3,7 +3,7 @@ layout: post-mathjax
 title: "从线性回归到逻辑回归"
 disqus: true
 date: 2017-04-11 15:43
-categories: MachineLearning
+categories: Machine&nbsp;Learning
 ---
 
 > 万物皆数，所有问题经过适当地抽象最终会转化为数学问题。（一元）线性回归是从二维数据点中，找到一条直线来拟合以使得方差最小。逻辑回归建立了从概率到实数的映射关系。也许所有的因果正如sigmoid函数，0和1之间，有限亦无限。

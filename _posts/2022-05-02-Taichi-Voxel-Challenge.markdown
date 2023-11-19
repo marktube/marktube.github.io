@@ -3,7 +3,7 @@ layout: post-mathjax
 title: "Dream to be a butterfly🦋（庄生晓梦迷蝴蝶）幕后"
 date: 2022-05-02 20:33
 disqus: true
-categories: Computer Graphics
+categories: Computer&nbsp;Graphics
 ---
 
 > 怎么也飞不出，花花的世界，原来我是一只，酒醉的蝴蝶～

@@ -3,7 +3,7 @@ layout: post
 title: "用Blender渲染SIGGRAPH ASIA的Fast Forward"
 date: 2021-09-30 09:15
 disqus: true
-categories: Computer Graphics
+categories: Computer&nbsp;Graphics
 ---
 
 > 记录一下制作Siggraph Asia 2021的Fast Forward视频制作过程，主要使用Blender来渲染点云以及模型，也许以后用得上。

@@ -3,7 +3,7 @@ layout: post-mathjax
 title: "多连通域边界提取分类与并查集"
 date: 2018-07-20 15:20
 disqus: true
-categories: ComputerGraphics
+categories: Computer&nbsp;Graphics
 ---
 
 > 设D是一区域，若属于D内任一简单闭曲线的内部都属于D，则称D为单连通域

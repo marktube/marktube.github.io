@@ -3,7 +3,7 @@ layout: post-mathjax
 title: "Simple Polygonal Mesh Structure"
 date: 2018-05-28 14:42
 disqus: true
-categories: Computer Graphics
+categories: Computer&nbsp;Graphics
 ---
 
 > Euler's Formula: V-E+F=2

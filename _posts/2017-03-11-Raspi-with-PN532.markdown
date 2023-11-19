@@ -3,7 +3,7 @@ layout: post
 title: 在树莓派上用PN532搞事情
 date: 2017-03-11 12:30:00
 disqus: true
-categories: RaspberryPi
+categories: Raspberry&nbsp;Pi
 ---
 
 >利用树莓派和PN532模块，可以低成本地完美复制一张MF1卡。RFID安全与我们的生活息息相关，支持MF1的门禁卡和饭卡，dump和写入数据，只需要一个树莓派和一个支持NFC的模块就能完成。

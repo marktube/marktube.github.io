@@ -2,7 +2,7 @@
 layout: post-mathjax
 title: "Neural Network Notes"
 date: 2017-03-21 22:43
-categories: MachineLearning
+categories: Machine&nbsp;Learning
 ---
 
 > Neural networks, a beautiful biologically-inspired programming paradigm which enables a computer to learn from observational data
