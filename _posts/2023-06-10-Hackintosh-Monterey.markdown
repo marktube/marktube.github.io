@@ -53,7 +53,7 @@ categories: Computer
 - 登录AppStore和iCloud的会出现一直连接不上，很有可能是没有内建无线网卡，而不是网络的问题。笔记本无线网卡无法驱动的话，USB网卡能驱动也可以，但是要安装NullEthernet.kext。亲测开机后还要插拔一下USB网卡才能获取到IP地址。
 - 蓝牙一般也是可以驱动的，需要BlueToolFixup.kext。
 - 因为我的硬盘是机械硬盘，在驱动上没有使用NVMefix.kext，但是在实际开机中经常有APFS的trim，使得开机时间大大增加，遂在OC中把SetApfsTrimTimeout设置成0。
-- 谨慎使用NVRAM相关选项，搞不好会使得电脑出现一些问题。我是在一次失败安装后关机风扇狂转，系统时间也不对。这时候要使用笔记本品牌官方的方法来清空NVRAM，然后把ResetNvramEntry.efi取消。DELL的方法是移除所有外设，然后长按电源键20s以上。
+- 谨慎使用NVRAM相关选项，搞不好会使得电脑出现一些问题。我是在一次失败安装后关机风扇狂转，系统时间也不对（需要重置实时时钟RTC）。这时候要使用笔记本品牌官方的方法来清空NVRAM，然后把ResetNvramEntry.efi取消。DELL XPS的方法是移除电源之外所有外设，关机，然后长按电源键30s——35s。
 - Monterey之后的系统好像把用户数据和系统数据分开了，如果系统出现问题重新安装后可以保留数据。新安装后不用急着马上把安装U盘抹掉。
 - 系统时间设置最好把Set date and time automatically关掉，不然系统容易寄。
 - 睡眠唤醒什么的还是不太行，网上找找其它方法没准可行。关闭啰嗦模式可以在boot-args里把-v去掉。
