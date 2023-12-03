@@ -57,6 +57,9 @@ categories: Computer
 - Monterey之后的系统好像把用户数据和系统数据分开了，如果系统出现问题重新安装后可以保留数据。新安装后不用急着马上把安装U盘抹掉。
 - 系统时间设置最好把Set date and time automatically关掉，不然系统容易寄。
 - 睡眠唤醒什么的还是不太行，网上找找其它方法没准可行。关闭啰嗦模式可以在boot-args里把-v去掉。
+- 键盘可用但是触摸板不行，可以看[OpenCore官方解决方法](https://dortania.github.io/OpenCore-Install-Guide/troubleshooting/extended/kernel-issues.html#keyboard-works-but-trackpad-does-not)，根据自己的DSDT文件编写SSDT-GPIO.aml来解决。
+- IRQ fix这里我用了[官方推荐方法](https://dortania.github.io/Getting-Started-With-ACPI/Universal/irq.html):SSDTTime，然后选C搞定。好像会fix有关RTC的问题。
+- EC补丁打上去后会黑屏，遂放弃。
 
 最后放上[自用仓库](https://github.com/marktube/XPS9570-Hackintosh-OC)还有安装成功的图片：
 
