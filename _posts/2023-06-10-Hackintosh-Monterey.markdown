@@ -49,6 +49,7 @@ categories: Computer
 
 安装教程和资源网上已经存在很多，这里就不再赘述，主要把一些安装时的问题小小总结一下。
 
+- PM981硬盘一定要屏蔽!!!不然会遇到系统不稳定常常崩溃的问题，具体屏蔽方法参考[这里](https://hpglw.com/pm981-evo970plus-hackintosh-fix-1.html)，我这里直接采用[SSDT屏蔽法](https://apple.sqlsec.com/6-%E5%AE%9E%E7%94%A8%E5%A7%BF%E5%8A%BF/6-8.html)
 - 安装时会多次重启，重启后在OC选择界面记得选择mac OS Installer来继续安装，耐心等待，中间安装时间可能持续半小时到一小时。
 - 登录AppStore和iCloud的会出现一直连接不上，很有可能是没有内建无线网卡，而不是网络的问题。笔记本无线网卡无法驱动的话，USB网卡能驱动也可以，但是要安装NullEthernet.kext。亲测开机后还要插拔一下USB网卡才能获取到IP地址。
 - 蓝牙一般也是可以驱动的，需要BlueToolFixup.kext。
