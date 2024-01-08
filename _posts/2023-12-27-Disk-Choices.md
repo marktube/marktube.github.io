@@ -6,7 +6,7 @@ disqus: true
 categories: Computer
 ---
 
-> 收废品啦，硬盘一斤5毛o((⊙﹏⊙))o.
+>收废品啦，硬盘一斤5毛o((⊙﹏⊙))o
 
 
 ### 归因
