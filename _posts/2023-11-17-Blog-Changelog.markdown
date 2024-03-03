@@ -38,47 +38,32 @@ about: 'about.html'
 为了把这些烦人的警告去掉，还是升级一下jquery的版本吧。直接跑去问ChatGPT，答案如下：
 
 > 升级 jQuery 通常只需替换现有版本的文件或使用包管理工具进行更新。以下是一些常见的方法：
-
 > ##### 方法一：使用 CDN
-
 > 如果您是通过 CDN 引入 jQuery，您只需将引用的版本更改为新的版本。例如，从：
-
-```html
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-```
-
+> ```html
+> <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+> ```
 > 更改为：
-
-```html
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-```
-
+> ```html
+> <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+> ```
 > ##### 方法二：下载最新版本 
-
-1. > **访问 jQuery 官方网站：** https://jquery.com/download/
-  
-2. > **选择下载版本：** 点击 "Download the compressed, production jQuery 3.6.0" 或类似的按钮，选择您需要的版本。
-
-3. > **替换文件：** 下载后，将新版本的 jQuery 文件替换您项目中的旧版本。
-
+> 1. **访问 jQuery 官方网站：** https://jquery.com/download/
+> 2. **选择下载版本：** 点击 "Download the compressed, production jQuery 3.6.0" 或类似的按钮，选择您需要的版本。
+> 3. **替换文件：** 下载后，将新版本的 jQuery 文件替换您项目中的旧版本。
 > ##### 方法三：使用包管理工具
-
 > 如果您的项目使用包管理工具（如 npm、Yarn），您可以使用以下命令来更新 jQuery：
-
-```bash
-# 使用 npm 更新 jQuery
-npm install jquery@latest
-
-# 使用 Yarn 更新 jQuery
-yarn add jquery@latest
-```
-
+>
+> ```bash
+> # 使用 npm 更新 jQuery
+> npm install jquery@latest
+> 
+> # 使用 Yarn 更新 jQuery
+> yarn add jquery@latest
+> ```
 > 确保在运行这些命令之后检查您的项目中是否存在问题，因为新版本可能引入了一些不兼容的更改。
-
 > ##### 方法四：使用自动化构建工具
-
 > 如果您使用自动化构建工具（如 Webpack、Parcel），在配置文件中指定最新的 jQuery 版本，然后运行构建命令。
-
 > 请注意，更新 jQuery 版本时，可能需要确保您的代码与新版本兼容。在 jQuery 的[官方升级指南](https://jquery.com/upgrade-guide/)中，您可以找到有关从一个版本迁移到另一个版本的详细信息，以确保平滑的升级过程。
 
 因为这里日志使用了本地的jquery.min.js，我选择方法二，直接去下载最新版本就行，[链接在这里](https://blog.jquery.com/2023/08/28/jquery-3-7-1-released-reliable-table-row-dimensions/)。同时要记得把_layouts/default.html里script标签加载的jquery改了。最后把老版本git rm掉就可以了。
@@ -110,38 +95,30 @@ yarn add jquery@latest
 先说链接，网上搜索出来的答案，很多是要注册微博SDK，但是这样的简单功能应该不至于这么大费周章。万能的ChatGPT还是给出了答案：
 
 > 要在网页上添加微博分享按钮，您可以使用微博提供的[官方分享按钮](http://service.weibo.com/share/share.php)。以下是一个基本的示例，演示如何在 HTML 中添加一个微博分享按钮：
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>微博分享按钮示例</title>
-</head>
-<body>
-    <!-- 微博分享按钮 -->
-    <a href="http://service.weibo.com/share/share.php?url=分享的链接&amp;title=分享的标题&amp;pic=分享的图片地址" target="_blank">
-        <img src="http://service.weibo.com/staticjs/images/icon3.png" alt="分享到微博" style="border:0;" />
-    </a>
-</body>
-</html>
-```
-
+>
+> ```html
+> <!DOCTYPE html>
+> <html lang="en">
+> <head>
+>    <meta charset="UTF-8">
+>    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>    <title>微博分享按钮示例</title>
+> </head>
+> <body>
+>    <!-- 微博分享按钮 -->
+>    <a href="http://service.weibo.com/share/share.php?url=分享的链接&amp;title=分享的标题&amp;pic=分享的图片地址" target="_blank">
+>        <img src="http://service.weibo.com/staticjs/images/icon3.png" alt="分享到微博" style="border:0;" />
+>    </a>
+> </body>
+> </html>
+> ```
 >  在这个示例中：
-
 > - `http://service.weibo.com/share/share.php` 是微博分享服务的链接。
-
 > - `url` 参数指定要分享的链接。
-
 > - `title` 参数指定分享的标题。
-
 > - `pic` 参数指定分享的图片地址。
-
 > - `<a>` 元素包含一个图片链接，点击这个链接将触发分享到微博。
-
 > 确保您替换 `分享的链接`、`分享的标题` 和 `分享的图片地址` 为您实际的内容。
-
 > 请注意，微博分享服务会自动生成一个窗口，用户需要登录微博来完成分享。如果您希望使用更自定义的分享按钮，您可以使用微博的[开放平台接口](https://open.weibo.com/wiki/%E5%BE%AE%E5%8D%9AJS-SDK)进行更高级的分享集成。
 
 接下来是图标，这个就比较麻烦了。因为它用到一个新的自定义字体，里面包含各种平台的icon。找了好久终于看到了一个[知乎的答案](https://www.zhihu.com/question/29054543/answer/69536716)，里面有提到这个[IcoMoon](https://icomoon.io/app/#/select)的网页，可以免费制作svg字体。这里只要把之前的字体导入然后加入微博的图标就可以了。这里再多啰嗦一点，微博还有微信的图标都可以在Font Awesome里找到，很多简历里会导入它来表示各种联系方式。
