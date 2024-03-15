@@ -33,7 +33,7 @@ Icon=/opt/android-studio/bin/studio.svg
 ```
 然后右键Allow Launch后放进/usr/share/applications/就可以愉快的打开了！因为下载SDK和System Image需要梯子，所以需要提前设置一下代理。接下来我就随便挑了一个安卓版本下载玩耍了，先熟悉一下相关工具的命令：emulaor可以用来启动安卓虚拟机，命令语法是
 ```
-emulaor -avd [avd名称] -writable-system
+emulator -avd [avd名称] -writable-system
 ```
 后面这个-writable-system是为了让文件系统可写，具体看emulaor文档。Debuger的常用调试命令有
 ```
@@ -83,11 +83,11 @@ adb: failed to install /home/xxx/Downloads/weixin.apk: Failure [INSTALL_FAILED_N
 ```
   ro.dalvik.vm.native.bridge=libhoudini.so
 ```
-用工具重新打包
+用[mkbootfs工具](https://github.com/osm0sis/mkbootfs)重新打包
 ```
   mkbootfs /home/xxx/Android/Sdk/system-images/android-25/default/x86_64/ramdisk | gzip > ramdisk_new.img
 ```
-然后下载[houdini7_y](https://github.com/SGNight/Arm-NativeBridge)，本机上mount和解压
+然后下载[houdini7_y](https://github.com/SGNight/Arm-NativeBridge)，本机上mount和解压(unsquashfs -d /media/location1 /media/location2/file.squashfs)
 - adb push到/data/arm/
 - 打开adb shell，
 ```
@@ -152,7 +152,7 @@ exit
 
 5. 用修改后的ramdisk.img启动emulator
 
-6. adb安转微信
+6. adb安装微信
 
 7. root
 
