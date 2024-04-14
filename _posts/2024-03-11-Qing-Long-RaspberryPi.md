@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 树莓派部署羊毛党神器——青龙面板
+title: 树莓派部署薅羊毛神器——青龙面板
 date: 2024-03-11 21:30:00
 disqus: true
 categories: Raspberry&nbsp;Pi
@@ -97,7 +97,7 @@ docker run -dit -v $PWD/ql/data:/ql/data -p 5700:5700  -e QlBaseUrl="/" -e QlPor
 
 按照提示一步一步安装即可。设置密码然后登录，在System Settings-Other Settings中可以设置语言为中文。后面拉库和部署的步骤参考[这篇博客](https://blog.csdn.net/Blue_W_Blue/article/details/124271487)和[某东签到仓库](https://github.com/6dylan6/jdpro/tree/main)。
 
-这里比较麻烦的地方是通知的设置。我打算使用telegram的bot直接推送，但是众所周知由于墙的原因，并不能直接使用，在系统设置-通知设置里面通过代理是可以发送的，但是定时任务中的脚本都无法发送，甚至尝试了[给容器配置代理](https://anthonysun256.github.io/docker-proxy-complete-solution/)。后续打算看看使用自建的tg反向代理转发来试试。最后放上今天的京豆收入。
+这里比较麻烦的地方是通知的设置。我打算使用telegram的bot直接推送，但是众所周知由于墙的原因，并不能直接使用，在系统设置-通知设置里面通过代理是可以发送的，但是定时任务中的脚本都无法发送，甚至尝试了[给容器配置代理](https://anthonysun256.github.io/docker-proxy-complete-solution/)。后续打算看看使用自建的tg反向代理转发来试试。最后放上今天的京豆收入，欢迎分享互助码！
 
 ![tongji](../../../../assets/images/ql_tongji.jpg)
 
