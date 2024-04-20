@@ -97,7 +97,103 @@ docker run -dit -v $PWD/ql/data:/ql/data -p 5700:5700  -e QlBaseUrl="/" -e QlPor
 
 按照提示一步一步安装即可。设置密码然后登录，在System Settings-Other Settings中可以设置语言为中文。后面拉库和部署的步骤参考[这篇博客](https://blog.csdn.net/Blue_W_Blue/article/details/124271487)和[某东签到仓库](https://github.com/6dylan6/jdpro/tree/main)。
 
-这里比较麻烦的地方是通知的设置。我打算使用telegram的bot直接推送，但是众所周知由于墙的原因，并不能直接使用，在系统设置-通知设置里面通过代理是可以发送的，但是定时任务中的脚本都无法发送，甚至尝试了[给容器配置代理](https://anthonysun256.github.io/docker-proxy-complete-solution/)。后续打算看看使用自建的tg反向代理转发来试试。最后放上今天的京豆收入，欢迎分享互助码！
+### 通知脚本修复
+
+这里比较麻烦的地方是通知的设置。我打算使用telegram的bot直接推送，但是众所周知由于墙的原因，并不能直接使用，在系统设置-通知设置里面通过代理是可以发送的，但是定时任务中的脚本都无法发送，甚至尝试了[给容器配置代理](https://anthonysun256.github.io/docker-proxy-complete-solution/)。原来的脚本还是一直发送tg消息失败，就算我在脚本中设置了代理地址也一直连接不上，提示：
+
+```js
+RequestError
+    at ClientRequest.<anonymous> (/ql/node_modules/.pnpm/got@11.8.6/node_modules/got/dist/source/core/index.js:970:111)
+    at Object.onceWrapper (node:events:633:26)
+    at ClientRequest.emit (node:events:530:35)
+    at origin.emit (/ql/node_modules/.pnpm/@szmarczak+http-timer@4.0.6/node_modules/@szmarczak/http-timer/dist/source/index.js:43:20)
+    at TLSSocket.socketErrorListener (node:_http_client:495:9)
+    at TLSSocket.emit (node:events:518:28)
+    at emitErrorNT (node:internal/streams/destroy:169:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:128:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)AggregateError
+    at internalConnectMultiple (node:net:1114:18)
+    at internalConnectMultiple (node:net:1177:5)
+    at Timeout.internalConnectMultipleTimeout (node:net:1687:3)
+    at listOnTimeout (node:internal/timers:575:11)
+    at process.processTimers (node:internal/timers:514:7) {
+  code: 'ETIMEDOUT',
+```
+
+不得不去看脚本然后排错了，在sendnotify.js里看到主要是这个函数里的问题：
+
+```js
+function tgBotNotify(text, desp) {
+  return new Promise((resolve) => {
+    if (TG_BOT_TOKEN && TG_USER_ID) {
+      const options = {
+        url: `${TG_API_HOST}/bot${TG_BOT_TOKEN}/sendMessage`,
+        json: {
+          chat_id: `${TG_USER_ID}`,
+          text: `${text}\n\n${desp}`,
+          disable_web_page_preview: true,
+        },
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        timeout,
+      };
+      if (TG_PROXY_HOST && TG_PROXY_PORT) {
+        const { HttpProxyAgent, HttpsProxyAgent } = require('hpagent');
+        const options = {
+          keepAlive: true,
+          keepAliveMsecs: 1000,
+          maxSockets: 256,
+          maxFreeSockets: 256,
+          proxy: `http://${TG_PROXY_AUTH}${TG_PROXY_HOST}:${TG_PROXY_PORT}`,
+        };
+        const httpAgent = new HttpProxyAgent(options);
+        const httpsAgent = new HttpsProxyAgent(options);
+        const agent = {
+          http: httpAgent,
+          https: httpsAgent,
+        };
+        Object.assign(options, { agent });
+      }
+      console.log(options)
+      $.post(options, (err, resp, data) => {
+```
+
+我在post请求前打印了options，看到agent并没有加到options的属性中。修复方法也很简单，把if条件里的options换一个变量名即可：
+
+```js
+if (TG_PROXY_HOST && TG_PROXY_PORT) {
+        const { HttpProxyAgent, HttpsProxyAgent } = require('hpagent');
+        const configs = {
+          keepAlive: true,
+          keepAliveMsecs: 1000,
+          maxSockets: 256,
+          maxFreeSockets: 256,
+          proxy: `http://${TG_PROXY_AUTH}${TG_PROXY_HOST}:${TG_PROXY_PORT}`,
+        };
+        const httpAgent = new HttpProxyAgent(configs);
+        const httpsAgent = new HttpsProxyAgent(configs);
+        const agent = {
+          http: httpAgent,
+          https: httpsAgent,
+        };
+        Object.assign(options, { agent });
+      }
+```
+
+通知脚本中的变量"TG_PROXY_HOST"和"TG_PROXY_PORT"等会优先使用Configuration File里的环境变量。但是，订阅管理中拉取的通知是使用“系统设置-通知设置”里的环境变量。修改好之后的sendnotify.js不要忘了复制一份放在deps目录下，防止重新拉库后被覆盖。
+
+接下来就是设置qinglong容器的代理问题了，如果本地有代理服务器，可以直接填上。但因为本人是在树莓派上开的docker容器，设置代理就有一点小麻烦了。大多数机场用户都是用clash，去年十月份由于某些不可描述的原因删库跑路了，好在还有一些软件备份可以继续使用。clash在开启代理时，本地开放[http://127.0.0.1:7890]()作为http代理端口，除了本机外，其他局域网内ip无法访问。虽然，可以在配置中设置"allow-lan: true"来共享http代理，然而因为代理链路没有认证过程，局域网内其它主机可以偷网，容易造成机场流量偷跑。经过我的一些探索，可以把clash放进docker容器里运行，然后把http代理地址设置成[http://127.0.0.1:7890]()。大致步骤如下：
+
+1. 去下载[clash-armv7](https://downloads.clash.wiki/ClashPremium/)
+2. 在scripts文件夹里创建clash文件夹并放入clash-linux-armv7（记得加入运行权限chmod +x）
+3. 将机场配置文件config.yaml、cache.db、Country.mmdb和webui文件（dashboard文件夹）放入clash文件夹
+4. 在config.yaml文件夹中设置external-controller地址和secret，以及加入一行"external-ui: dashboard"，在docker container中增加一个映射端口来控制clash，例如9090
+5. 新建一个脚本run_clash.sh加入以下内容:``` nohup ./clash-linux-armv7 -f config.yaml -d . > output.log 2>&1 &```
+6. 
+运行run_clash.sh脚本开启代理即可，通过[http://树莓派ip:9090/ui]()来选取线路
+
+最后放上今天的京豆收入，欢迎分享互助码！
 
 ![tongji](../../../../assets/images/ql_tongji.jpg)
 
