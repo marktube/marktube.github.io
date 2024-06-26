@@ -124,8 +124,8 @@ sudo make install
 由于这里我是使用Raspberry Pi的UART接口连接PN532，所以只说明这种连接方式。树莓派的GPIO接口图如下：
 ![img](../../../../assets/images/rpi-pins-40-0.png)
 这里我选择物理引脚编码为2、6、8、10的引脚，分别用杜邦线连上PN532模块的VCC、GND、RX和TX即可。因为树莓派3的蓝牙集成在了硬件串口上，想要使用uart必须要关闭蓝牙对硬件串口的使用(sudo systemctl disable hciuart
-)。不然在使用nfc-list命令时，一直会提示找不到NFC设备。所以先用sudo raspi-config进行配置，选择Interface-Options，启用SPI和I2C，禁用Serial。然后sudo nano /boot/config.txt，找到enable_uart=0，改成enable_uart=1，最后编辑下/etc/nfc/devices.d/pn532_uart_on_rpi.conf
-，把里面的ttyAMA0改成serial0，重启树莓派即可。现在使用nfc-list命令应该就能看到设备了。接下来就可以自己拿mfoc和mfcuk读卡和写卡了。不过有的卡不能改UID，这个貌似是只读区域，但是万能的某宝貌似有可写UID的卡片卖。下面给出一个复制门禁卡的代码例子
+)。不然在使用nfc-list命令时，一直会提示找不到NFC设备。所以先用`sudo raspi-config`进行配置，选择`Interface-Options`，启用`SPI`和`I2C`，禁用`Serial`。然后`sudo nano /boot/config.txt`，找到enable_uart=0，改成enable_uart=1，最后编辑下`/etc/nfc/devices.d/pn532_uart_on_rpi.conf`
+，把里面的ttyAMA0改成serial0，重启树莓派即可。现在使用`nfc-list`命令应该就能看到设备了。接下来就可以自己拿`mfoc`和`nfc-mfclassic`读卡和写卡了。不过有的卡不能改UID，这个貌似是只读区域，但是万能的某宝貌似有可写UID的卡片卖。下面给出一个复制门禁卡的代码例子
 ```bash
 # 读取原有门禁卡
 mfoc -O door.mfd
@@ -135,9 +135,9 @@ nfc-mfclassic f A keys/tmp.mfd keys/tmp.mfd f
 # 读取空白卡
 mfoc -O blank.mfd
 # 将原有门禁卡内容写入空白卡，如果UID可写
-nfc-mfclassic W a u mycard.mfd card_nothing.mfd
+nfc-mfclassic W a door.mfd blank.mfd
 # 将原有门禁卡内容写入空白卡，如果UID不可写
-nfc-mfclassic w a keys/jingshiyuan.mfd keys/blank.mfd f
+nfc-mfclassic w a door.mfd blank.mfd f
 ```
 最后放上我的树莓派和PN532。
 
