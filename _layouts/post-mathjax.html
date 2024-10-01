@@ -46,6 +46,23 @@ post_class: post-template
 
 <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
+<!-- pseudo.js config -->
+{% if page.pseudocode %}
+<script 
+src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"
+        
+integrity="sha512-EKW5YvKU3hpyyOcN6jQnAxO/L8gts+YdYV6Yymtl8pk9YlYFtqJgihORuRoBXK8/cOIlappdU6Ms8KdK6yBCgA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css">
+<script 
+src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js">
+</script>
+
+{% endif %}
+
 </header>
 
 <!--段首2空格 
@@ -113,6 +130,16 @@ p{text-indent:2em}
 
             <!-- Live2D Widget section -->
             {% include waifu.html %}
+
+            <!-- mermaid rendering -->
+            {% if page.mermaid %}
+                {% include mermaid.html %}
+            {% endif %}
+
+            <!-- pseudocode rendering -->
+            {% if page.pseudocode %}
+                {% include pseudocode.html%}
+            {% endif %}
 
         </footer>
 

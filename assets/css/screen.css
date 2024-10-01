@@ -1217,6 +1217,16 @@ body:not(.post-template) .post-title {
     font-size: 1.1rem;
 }
 
+/* pseudo.js */
+p.ps-line p.ps-code{
+    margin: 0
+    padding: 0
+    line-height: 0.1
+}
+
+div.ps-block {
+    line-height: 0.1
+}
 
 /* ==========================================================================
    8. Pagination - Tools to let you flick between pages
