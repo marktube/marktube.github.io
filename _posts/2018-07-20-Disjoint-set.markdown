@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: "多连通域边界提取分类与并查集"
 date: 2018-07-20 15:20
+mathjax: true
 disqus: true
 categories: Computer&nbsp;Graphics
 ---

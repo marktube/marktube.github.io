@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: "掷n个骰子点数的概率分布"
 date: 2018-09-15 14:52
+mathjax: true
 disqus: true
 categories: Algorithm
 ---

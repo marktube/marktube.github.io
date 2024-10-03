@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: 凸优化在金融中的应用
 date: 2024-07-16 15:02:06
+mathjax: true
 disqus: true
 categories: Finance
 ---
@@ -69,7 +70,8 @@ $$
 & x \ge 0
 \end{array}
 $$
-其中：
+
+，其中：
 - $ c $ 是目标函数的系数向量。
 - $x ​$是决策变量向量。
 - $A $是约束条件的系数矩阵。

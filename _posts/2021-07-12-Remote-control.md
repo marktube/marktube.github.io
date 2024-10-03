@@ -1,5 +1,5 @@
 ---
-layout: post-mathjax
+layout: post
 title: "Setup Remote Control on Ubuntu20.04"
 date: 2021-07-12 20:09
 disqus: true

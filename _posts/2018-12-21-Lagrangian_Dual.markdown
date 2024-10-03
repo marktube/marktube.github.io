@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: "约束极值问题和拉格朗日对偶"
 date: 2018-12-21 16:47
+mathjax: true
 disqus: true
 categories: Math
 ---

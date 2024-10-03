@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: "特征值、特征向量和相似矩阵"
 date: 2017-12-28 9:05
+mathjax: true
 disqus: true
 categories: Math
 ---

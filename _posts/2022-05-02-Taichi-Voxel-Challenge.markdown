@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: "Dream to be a butterfly🦋（庄生晓梦迷蝴蝶）幕后"
 date: 2022-05-02 20:33
+mathjax: true
 disqus: true
 categories: Computer&nbsp;Graphics
 ---

@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: "Polynomial interpolation"
 date: 2017-09-10 22:07
+mathjax: true
 disqus: true
 categories: Math
 ---

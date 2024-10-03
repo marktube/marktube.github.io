@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How do I paint the Penrose triangle"
+title: "Can you paint the Penrose triangle?"
 date: 2017-06-07 16:43
 disqus: true
 categories: Art

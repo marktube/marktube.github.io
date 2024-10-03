@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: "主成分分析(PCA)相关推导"
 date: 2019-01-04 16:47
+mathjax: true
 disqus: true
 categories: Machine&nbsp;Learning
 ---

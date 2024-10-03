@@ -10,6 +10,61 @@ post_class: post-template
         <a class="back-button icon-arrow-left" href="{{ site.url }}">Home</a>
         <a class="subscribe-button icon-feed" href="{{ site.url }}feed.xml">Subscribe</a>
     </nav>
+
+<!-- MathJax 公式 -->
+<!-- mathjax config similar to math.stackexchange -->
+{% if page.mathjax %}
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    "HTML-CSS": {
+      availableFonts: ["STIX", "TeX"], //可选字体
+      webFont: "TeX",
+      showMathMenu: true, //关闭右击菜单显示
+      linebreaks: { automatic: true, width: "94%container" },
+      matchFontHeight: true,
+      imageFont: null
+    }
+  });
+</script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+
+<script type="text/javascript" 
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{% endif %}
+
+<!-- pseudo.js config -->
+{% if page.pseudocode %}
+<script 
+src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"
+        
+integrity="sha512-EKW5YvKU3hpyyOcN6jQnAxO/L8gts+YdYV6Yymtl8pk9YlYFtqJgihORuRoBXK8/cOIlappdU6Ms8KdK6yBCgA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css">
+<script 
+src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js">
+</script>
+
+{% endif %}
+
 </header>
 
 <main class="content" role="main">
@@ -72,6 +127,16 @@ post_class: post-template
 
             <!-- Live2D Widget section -->
             {% include waifu.html %}
+
+            <!-- mermaid rendering -->
+            {% if page.mermaid %}
+                {% include mermaid.html %}
+            {% endif %}
+
+            <!-- pseudocode rendering -->
+            {% if page.pseudocode %}
+                {% include pseudocode.html%}
+            {% endif %}
 
         </footer>
 

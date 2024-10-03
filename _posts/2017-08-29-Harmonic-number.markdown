@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: "数学杂记--调和级数的相关证明"
 date: 2017-08-29 21:42
+mathjax: true
 disqus: true
 categories: Math
 ---

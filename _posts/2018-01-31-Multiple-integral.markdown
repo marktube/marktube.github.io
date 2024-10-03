@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: "第一型曲面积分与第二型曲面积分"
 date: 2018-01-31 20:55
+mathjax: true
 disqus: true
 categories: Math
 ---

@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: "Neural Network Notes"
 date: 2017-03-21 22:43
+mathjax: true
 categories: Machine&nbsp;Learning
 ---
 

@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: "Simple Polygonal Mesh Structure"
 date: 2018-05-28 14:42
+mathjax: true
 disqus: true
 categories: Computer&nbsp;Graphics
 ---

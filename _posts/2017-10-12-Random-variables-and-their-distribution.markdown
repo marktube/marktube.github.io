@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: "Random variables and their distribution"
 date: 2017-10-12 16:03
+mathjax: true
 disqus: true
 categories: Math
 ---

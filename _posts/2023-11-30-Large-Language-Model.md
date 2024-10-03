@@ -1,7 +1,8 @@
 ---
-layout: post-mathjax
+layout: post
 title: 大模型教我学大模型
 date: 2023-11-30 8:20
+mathjax: true
 disqus: true
 categories: Artificial&nbsp;Intelligence
 ---
