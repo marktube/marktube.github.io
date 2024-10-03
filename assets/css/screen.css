@@ -141,6 +141,9 @@ table { border-collapse: collapse; border-spacing: 0; }
     content: "\f602";
     font-size: 1.1em;
 }
+.icon-x:before {
+  content: "\e902";
+}
 .icon-weibo:before {
     content: "\e900";
     font-size: 1.1em;
