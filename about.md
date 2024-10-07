@@ -64,20 +64,7 @@ title:
 
 ## <font color="#e55451">Biography</font>
 
-I am a Ph.D. graduated from the  [National Laboratory of Pattern Recognition(NLPR)](http://nlpr-web.ia.ac.cn/), [Institute of Automation, Chinese Academy of Sciences(CASIA)](http://english.ia.cas.cn/) supervised by Prof. [Xiaopeng Zhang](http://people.ucas.ac.cn/~zhangxiaopeng?language=en) and [Jianwei Guo](http://jianweiguo.net/). 
-
-I received my bachelor's degree from [Sun Yat-Sen University(SYSU)](http://www.sysu.edu.cn/) in 2016. My research area includes deep learning and computer graphics, my research interest focus on 3D computer vision, geometric modeling and geometry learning.
-
-
-## <font color="#e55451">News</font>
-
-- 12/2022: One paper accepted by **Computational Visual Media 2023**
-- 12/2022: One paper accepted by **IEEE Transactions on Visualization and Computer Graphics**
-- 11/2022: Revieved minor revision of paper previously submitted to **IEEE Transactions on Visualization and Computer Graphics**
-- 08/2022: Recieved major revision of paper previously submitted to **IEEE Transactions on Visualization and Computer Graphics**
-- 06/2022: Become a member of **CSIG(China Society of Image and Graphics)**
-- 04/2022: One paper submitted to **IEEE Transactions on Visualization and Computer Graphics**
-- 08/2021: One paper accepted by **SIGGRAPH ASIA 2021**
+I am currently a postdoctoral researcher in [School of Economics and Management, Tsinghua University](https://sem.tsinghua.edu.cn/) collaborating with Prof. [Jinliang Li](https://sem.tsinghua.edu.cn/info/1189/33123.htm). I received my bachelor's degree from [Sun Yat-Sen University(SYSU)](http://www.sysu.edu.cn/) in 2016. I earned my Ph.D. in [Institute of Automation, Chinese Academy of Sciences(CASIA)](http://english.ia.cas.cn/) supervised by Prof. [Xiaopeng Zhang](http://people.ucas.ac.cn/~zhangxiaopeng?language=en) and [Jianwei Guo](http://jianweiguo.net/) in Jun. 2023. My research area includes deep learning and computer graphics, my research interests cover machine learning in finance, 3D computer vision, geometric modeling and geometry learning.
 
 
 ## <font color="#2b547e">Publications</font>
@@ -163,6 +150,7 @@ I received my bachelor's degree from [Sun Yat-Sen University(SYSU)](http://www.s
 
 ## <font color="#2b547e">Internship Experiences</font>
 
+- 07/2023-08/2023 Intern in [3D Vision and Computational Photography of Tsinghua University](https://www.liuyebin.com/index.html) 
 - 10/2019-06/2021 Intern in [Visual Computing Research Center of Shenzhen University](https://vcc.tech/index.html) supervised by Prof.[Huang](https://vcc.tech/~huihuang)
 - 07/2016-04/2017 Assitant information security engineer in DJI Innovation Technology
 
