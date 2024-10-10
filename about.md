@@ -47,14 +47,14 @@ title:
 	<tbody><tr><td style="width: 50%;background-color: white;" valign="right">
 		<h1 style="text-align: right;" align="center"><heading>Yanchao Liu | 刘彦超</heading></h1>
 		<p style="text-align: right;" align="justify">&nbsp;</p>
-		<p style="text-align: right;" align="justify">Ph.D. candidate
-			<br><a href="http://english.ia.cas.cn/">Institute of Automation, Chinese Academy of Sciences (CASIA)</a>&nbsp;
-			<br>No.95 Zhongguancun East Road, Haidian District, Beijing, China
+		<p style="text-align: right;" align="justify">Postdoc
+			<br><a href="https://www.sem.tsinghua.edu.cn/">School of Economics and Management, Tsinghua University</a>&nbsp;
+			<br>Weilun Building 514 Room A5, Tsinghua University, Haidian District, Beijing, China, 10084
 		</p>
 		<p style="text-align: right;" align="justify">
-			<a href="mailto:liuyanchao2018@ia.ac.cn">[Email]</a> 
+			<a href="mailto:liuyc@sem.tsinghua.edu.cn">[Email]</a> 
 			<a href="https://github.com/marktube/">[Github]</a>
-			<a href="https://marktube.github.io">[Blog]</a>                    
+			<a href="https://blog.liuyc.us.kg">[Blog]</a>                    
 		</p>
 		</td> 
 		<td style="width: 50%;background-color: white;"><img src="../../../assets/images/profile2.jpg" height="300px"> 
