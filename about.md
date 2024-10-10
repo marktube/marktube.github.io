@@ -47,9 +47,10 @@ title:
 	<tbody><tr><td style="width: 50%;background-color: white;" valign="right">
 		<h1 style="text-align: right;" align="center"><heading>Yanchao Liu | 刘彦超</heading></h1>
 		<p style="text-align: right;" align="justify">&nbsp;</p>
-		<p style="text-align: right;" align="justify">Postdoc
-			<br><a href="https://www.sem.tsinghua.edu.cn/">School of Economics and Management, Tsinghua University</a>&nbsp;
-			<br>Weilun Building 514 Room A5, Tsinghua University, Haidian District, Beijing, China, 10084
+		<p style="text-align: right;" align="justify">Postdoc in <a href="https://www.sem.tsinghua.edu.cn/fin/index.htm">Department of Finance</a>
+			<br><a href="https://www.sem.tsinghua.edu.cn/">School of Economics and Management</a>, <a href="https://www.tsinghua.edu.cn">Tsinghua University</a>&nbsp;
+			<br>Weilun Building Room 514 A5, Tsinghua University, 
+			<br>Haidian District, Beijing, China, 10084
 		</p>
 		<p style="text-align: right;" align="justify">
 			<a href="mailto:liuyc@sem.tsinghua.edu.cn">[Email]</a> 
