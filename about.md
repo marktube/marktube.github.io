@@ -67,6 +67,12 @@ title:
 
 I am currently a postdoctoral researcher in [School of Economics and Management, Tsinghua University](https://sem.tsinghua.edu.cn/) collaborating with Prof. [Jinliang Li](https://sem.tsinghua.edu.cn/info/1189/33123.htm). I received my bachelor's degree from [Sun Yat-Sen University(SYSU)](http://www.sysu.edu.cn/) in 2016. I earned my Ph.D. in [Institute of Automation, Chinese Academy of Sciences(CASIA)](http://english.ia.cas.cn/) supervised by Prof. [Xiaopeng Zhang](http://people.ucas.ac.cn/~zhangxiaopeng?language=en) and [Jianwei Guo](http://jianweiguo.net/) in Jun. 2023. My research area includes deep learning and computer graphics, my research interests cover machine learning in finance, 3D computer vision, geometric modeling and geometry learning.
 
+## <font color="#e55451">Collaboration Opportunities</font>
+Welcome for researching collaborations! Please contact me by email above or send anonymous message using curl(or other method to post http request) below with your email info if possible:
+```cmd
+curl -X POST -H "Content-Type: application/json" -d "{\"text\": \"This is anonymous message\"}" https://tg.liuyc.us.kg/xiaomishukeshifuMSG
+```
+
 
 ## <font color="#2b547e">Publications</font>
 
