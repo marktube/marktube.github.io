@@ -131,7 +131,7 @@ systemctl --user status goauthing.service
 ### Win10开启SSH和RDP
 
 
-教育网公网IP屏蔽了常用端口，如22(SSH)、80(Web)、3389(RDP)，需要更改其它端口连接，参考官方文档“[更改远程桌面的侦听端口 | Microsoft Learn](https://learn.microsoft.com/zh-cn/windows-server/remote/remote-desktop-services/clients/change-listening-port)”。但是用密码连接可能会被爆破，所以推荐用SSH转发加一层SSL加密来增加安全性，可以参考[之前的博客](https://blog.liuyc.us.kg/2021/07/12/Remote-control)。
+教育网公网IP屏蔽了常用端口，如22(SSH)、80(Web)、3389(RDP)，需要更改其它端口连接，参考官方文档“[更改远程桌面的侦听端口 \| Microsoft Learn](https://learn.microsoft.com/zh-cn/windows-server/remote/remote-desktop-services/clients/change-listening-port)”。但是用密码连接可能会被爆破，所以推荐用SSH转发加一层SSL加密来增加安全性，可以参考[之前的博客](https://blog.liuyc.us.kg/2021/07/12/Remote-control)。
 
 
 **1. 在被控主机上开启SSH并修改端口**
