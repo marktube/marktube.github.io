@@ -125,6 +125,7 @@ systemctl --user status goauthing.service
 ```powershell
 .\tunet-services register
 ```
+还可以参考[这里](https://thu.services/services/#windows)使用goauthing运行定时脚本。
 
 
 
