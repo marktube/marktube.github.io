@@ -177,6 +177,34 @@ ssh -L 12345:localhost:3389 -C -N -l your_username your_server_ip -p xxx #xxx为
 然后开启RDP客户端连接，地址选`localhost:12345`，输入用户名密码即可。实测感觉rdp比vnc速度更快，播放视频不卡，还有声音。
 
 
+---
+
+2025.1.27日更新
 
 
+**4. 被控端开启ddns和ip变动通知**
 
+因为被控端会移动或者开关机以及其它路由器方面的原因而导致ip变动，之前的ip很有可能会因此失效，导致无法再连接。而因为大清校园网ipv4是**教育网公网ip和ipv6地址**，故只需要绑定一下ddns即可。
+以教育网ipv4为例，ddns服务选择cloudflare进行配置。
+
+为了避免每次隔一段时间检查ip变动，我们只需要使用微软自带的**任务计划程序**创建任务
+![ms_mission_plan](../../../../assets/images/ms_mission_plan.jpg)
+。首先右键选择创建基本任务，填入名称和描述。然后填入触发器，这里只需要加入下面三个**触发器任务**：
+![ms_mission_plan](../../../../assets/images/ms_mission_trigger.jpg)
+接下来选择操作，填入在触发上述事件时**需要运行的脚本路径**。最后完成之后检查一下其它的选项，如常规中在未登录时也运行任务。这样就不用每隔一段时间检查ip，能够省下一些cpu时间进行其他任务。
+
+运行的脚本中需要在ip变动时将ip发送给ddns服务器，这里选择cmd脚本，创建bat文件后另存为**ANSI编码**，可以支持中文。在脚本中填入以下内容：
+```cmd
+@echo off
+
+for /f "tokens=2 delims=:" %%f in ('ipconfig ^| findstr "IPv4 Address"') do set "ip_addr=%%f"
+
+for /f "tokens=5 delims= " %%f in ('netsh interface ipv6 show address ^| findstr "临时"') do set "ip6_addr=%%f"
+
+curl -X POST -H "Content-Type: application/json" -d "{\"chat_id\": \"xxx\", \"text\": \"Your *IP address* changed to ipv4: *%ip_addr%* and ipv6: *%ip6_addr%*\\!\", \"parse_mode\": \"MarkdownV2\"}"  https://api.telegram.org/your_bot_key_/sendMessage
+
+curl "https://api.cloudflare.com/client/v4/zones/your_zone_id/dns_records/dns_record_id" -X PATCH -H "Content-Type:application/json" -H "Authorization: Bearer your_api_key"  -d "{\"comment\": \"Domain verification record\",\"content\": \"%ip_addr%\",\"name\": \"你的域名\", \"proxied\": false, \"ttl\": 3600, \"type\": \"A\"}"
+
+rem pause
+```
+上面的的脚本发送了更新后的ipv4和ipv6地址。同时通过cloudflare的API更新了动态dns。需要注意自行配置tg bot key和cloudflare里的api key以及zone_id和dns_record_id。
