@@ -84,7 +84,8 @@ pannellum.viewer('example_panorama', {
 <script>
 pannellum.viewer('panorama100', {
     "type": "equirectangular",
-    "panorama": "../../../../assets/images/DJI_20250127165331_0007_D.JPG"
+    "panorama": "../../../../assets/images/DJI_20250127165331_0007_D.JPG",
+    "showFullscreenCtrl": true
 });
 </script>
 
@@ -93,7 +94,8 @@ pannellum.viewer('panorama100', {
 <script>
 pannellum.viewer('panorama300', {
     "type": "equirectangular",
-    "panorama": "../../../../assets/images/DJI_20250127164746_0003_D.JPG"
+    "panorama": "../../../../assets/images/DJI_20250127164746_0003_D.JPG",
+    "showFullscreenCtrl": true
 });
 </script>
 
