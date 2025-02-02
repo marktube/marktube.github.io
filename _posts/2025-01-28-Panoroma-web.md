@@ -18,7 +18,7 @@ categories: Web
 ```html
 <iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://pannellum.org/images/cerro-toco-0.jpg&amp;autoLoad=true"></iframe>
 ```
-<center><iframe width="600" height="400" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://pannellum.org/images/cerro-toco-0.jpg&amp;autoLoad=true"></iframe></center>
+<center><iframe width="300" height="200" allowfullscreen style="border-style:none;" src="https://cdn.pannellum.org/2.5/pannellum.htm#panorama=https://pannellum.org/images/cerro-toco-0.jpg&amp;autoLoad=true"></iframe></center>
 
 该方式需要上传图片到支持[CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)的图床, 例如[Imgur](https://imgur.com/).可以通过[官方的教程](https://pannellum.org/documentation/overview/tutorial/)生成iframe标签进行嵌入。
 
