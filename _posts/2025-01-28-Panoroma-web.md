@@ -99,4 +99,9 @@ pannellum.viewer('panorama300', {
 });
 </script>
 
-如果想要更清晰和高精度的数据，还是需要进行三维重建和标注。最后祝大家新年快乐！
+如果想要更清晰和高精度的数据，还是需要进行三维重建和标注。由于拼接的全景图文件较大，很多平台无法支持存储。我在尝试部署过程中就遇到了Cloudflare Page的错误提醒：“ ✘ [ERROR] Error: Pages only supports files up to 25 MiB in size”。只能通过压缩图片和使用图床来解决。
+
+
+### 图床服务
+目前已有很多图床服务，但是我还是决定使用大善人cloudflare的R2 Storage，因为很多免费图床支持的最大图片文件只有6MB。使用[Piclist](https://github.com/Kuingsmile/PicList)或者[PicGo](https://github.com/Molunerfinn/PicGo)，可以方便的上传和修改，可以参考一些[教程](https://www.cnblogs.com/hopeblaze/articles/18644716)来部署。
+最后祝大家新年快乐！
