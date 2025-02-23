@@ -9,11 +9,11 @@ highlighter: rouge
 logo: false
 paginate: 15
 baseurl: '/'
-domain_name: 'https://blog.liuyc.us.kg'
+domain_name: 'https://blog.lyc.dns-dynamic.net'
 google_analytics: 'UA-96545939-1'
 plugins: [jekyll-paginate]
 mathjax: true
 
 # Details for the RSS feed generator
-url:            'https://blog.liuyc.us.kg/'
+url:            'https://blog.lyc.dns-dynamic.net/'
 author:         'Marktube'
