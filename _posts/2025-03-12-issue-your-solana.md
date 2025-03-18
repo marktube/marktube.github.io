@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Trump同款————在Solana链上撒币
+title: Trump同款——在Solana链上撒币
 date: 2025-03-12 14:36:15
 mathjax: false
 disqus: true
