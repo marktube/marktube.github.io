@@ -165,7 +165,7 @@ example.com.    IN TXT    "v=spf1 include:_spf.google.com ~all"
 - 第二条 SPF 记录允许 Google 服务器发送 example.com 邮件，防止垃圾邮件。
 
 最后说一下优选域名的作用，个人理解不对请轻喷。因为国内没有域名根服务器，大多数dns注册和解析依靠外面的服务器。而因为GFW的存在，不得不对一些dns的请求放行。因为大善人有很多cdn服务器，国际和国内的业务也都有，不能完全一刀切把它封死。所以会有一些大厂的dns服务能够在国内也可以访问和解析，这些大厂的存在使得我们可以通过他们的dns服务器域名进行转发和解析，这就是优选域名的作用，为了国内能够更快地访问和解析域名。
-对于某些特殊的大善人自己的服务站点，它会阻断来自大善人自己服务的请求，这时候就需要反代IP来进行转发，也就是经常说的ProxyIP。
+对于某些特殊的大善人自己的服务站点，它会阻断来自大善人自己服务的请求，这时候就需要反代IP来进行转发，也就是经常说的ProxyIP，具体参考[这里](https://upsangel.com/security/vpn/cloudflare-worker-vless%E7%BF%BB%E7%89%86%E4%BB%A3%E7%90%86%E5%8E%9F%E7%90%86-proxyip%E7%B4%B0%E7%AF%80%E7%A0%94%E7%A9%B6/)。
 
 ##### 3.配置边缘证书
 同样按照上面的[参考](https://www.zhadu.com/programming/cloudflare1.html)进行配置，主要步骤就是**在cloudns中添加两条ns记录“_acme-challenge.你的域名”指向cloudflare的nameserver**。也可以手动去添加txt记录验证证书，参考[这里](https://blog.csdn.net/techshrimp/article/details/140561335)。
