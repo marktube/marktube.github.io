@@ -55,7 +55,7 @@ title:
 		<p style="text-align: right;" align="justify">
 			<a href="mailto:liuyc@sem.tsinghua.edu.cn">[Email]</a> 
 			<a href="https://github.com/marktube/">[Github]</a>
-			<a href="https://blog.liuyc.us.kg">[Blog]</a>                    
+			<a href="https://blog.liuyc.uk">[Blog]</a>                    
 		</p>
 		</td> 
 		<td style="width: 50%;background-color: white;"><img src="../../../assets/images/profile2.jpg" height="300px"> 
