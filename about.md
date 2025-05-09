@@ -71,6 +71,8 @@ I am currently a postdoctoral researcher in [School of Economics and Management,
 Welcome for researching collaborations! Please contact me by email above. Some useful links:
 - [docker image mirror supported by me](https://docker.nw.ip-ddns.com)
 
+- [deepseek distill Qwen 14B deployed by me](https://deepseek.liuyc.uk)
+
 - [rss worker supported by me](https://rss.nw.ip-ddns.com)
 
 
