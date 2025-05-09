@@ -50,6 +50,19 @@ with open("wallet_private_key.txt", "w") as f:
 
 ```
 
+或者从从已有私钥恢复钱包：
+
+```python
+from solders.keypair import Keypair
+import binascii
+
+private_key_hex = "your private key here"
+private_key_bytes = binascii.unhexlify(private_key_hex)
+wallet = Keypair.from_seed(private_key_bytes)
+print("公钥:", wallet.pubkey())
+print("私钥:", wallet.secret().hex())
+```
+
 2️⃣⚡ 拿测试币：
 
 把上面生成的钱包公钥复制下来。
@@ -84,6 +97,19 @@ token = Token.create_mint(
 
 print("代币创建成功！Mint地址:", token.pubkey)
 
+```
+
+或者从已有mint authority的钱包私钥恢复出原有代币合约：
+
+```python
+from spl.token.client import Token
+from spl.token.constants import TOKEN_PROGRAM_ID
+from solders.pubkey import Pubkey
+
+
+token = Token(client, Pubkey.from_string('previous token mint address'), TOKEN_PROGRAM_ID, wallet)
+
+print("代币创建成功！Mint地址:", token.pubkey)
 ```
 
 🎨 2️⃣ 添加代币的名称和符号
@@ -239,6 +265,29 @@ print("代币账户地址:", token_account)
 print("已铸造100万个代币")
 ```
 
+也可以通过Solana钱包地址查询代币账户地址：
+
+```python
+from solana.rpc.types import TokenAccountOpts
+
+opts = TokenAccountOpts(program_id=TOKEN_PROGRAM_ID)
+
+
+# 获取该钱包控制的所有 Token 账户
+response = client.get_token_accounts_by_owner(wallet.pubkey(), opts)
+
+# 解析返回数据
+token_accounts = response.value  # 这里用 `.value` 获取数据
+
+if not token_accounts:
+    print("❌ 该钱包没有控制任何代币账户")
+else:
+    print(token_accounts[0])
+    print(type(token_accounts))
+    print(f'length of token accounts: {len(token_accounts)}')
+    print(type(token_accounts[0]))
+```
+
 ### 📈 第五步：进行代币转账
 
 假如你有一个朋友的钱包地址 recipient_address，你可以用Python转账：
@@ -259,6 +308,18 @@ token.transfer(
 )
 
 print(f"成功发送500个代币到 {recipient_address}")
+```
+
+如果你的朋友之前已经创建了代币账户，那么就可以直接使用代币账户的地址来进行转账：
+
+```python
+# 发送100个代币
+token.transfer(
+    Pubkey.from_string('转出地址'),
+    Pubkey.from_string('转入地址'),
+    wallet,
+    100
+)
 ```
 
 ### 🌟 第六步：查询余额

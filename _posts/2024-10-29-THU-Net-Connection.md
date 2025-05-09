@@ -207,4 +207,4 @@ curl "https://api.cloudflare.com/client/v4/zones/your_zone_id/dns_records/dns_re
 
 rem pause
 ```
-上面的的脚本发送了更新后的ipv4和ipv6地址。同时通过cloudflare的API更新了动态dns。需要注意自行配置tg bot key和cloudflare里的api key以及zone_id和dns_record_id。
+上面的的脚本发送了更新后的ipv4和ipv6地址。同时通过cloudflare的API更新了动态dns。需要注意自行配置tg bot key和cloudflare里的api key以及zone_id和dns_record_id。dns_record_id在哪找？我也是费好大劲终于找到，首先打开cloudflare的dashboard，然后在`Manage Account`下拉页面找到`Audit Log`，最后在你创建域名的记录值中有zone_id和dns_record_id。
