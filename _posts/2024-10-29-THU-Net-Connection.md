@@ -101,7 +101,7 @@ StartLimitIntervalSec = 0
 ExecStartPre = -"auth-thu路径" -D deauth
 ExecStartPre = -"auth-thu路径" -D auth
 ExecStartPre = -"auth-thu路径" -D login
-ExecStart    = "auth-thu路径" -D online
+ExecStart    = -"auth-thu路径" -D online
 Restart      = always
 RestartSec   = 5
 
