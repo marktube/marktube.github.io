@@ -75,6 +75,9 @@ Welcome for researching collaborations! Please contact me by email above. Some u
 
 - [rss worker supported by me](https://rss.nw.ip-ddns.com)
 
+- [music repository supported by me](https://music.liuyc.uk)
+
+- [cloud drive supported by me](https://flaredrive.liuyc.uk)
 
 ## <font color="#2b547e">Publications</font>
 

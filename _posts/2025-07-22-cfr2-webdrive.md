@@ -148,3 +148,7 @@ pannellum.viewer('panoramadawu', {
     "showFullscreenCtrl": true
 });
 </script>
+
+---
+
+更新网盘仓库功能，只读用户只能查看权限目录和公共目录，[仓库在这](https://github.com/marktube/FlareDrive-R2)
