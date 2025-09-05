@@ -58,6 +58,14 @@ document.getElementById("pr-img-view").innerHTML = "";
 只有当`isImage`和`isShowBottom`都是`true`时才会渲染，同时需要在对应的位置设置`isShowBottom`变量，具体请看代码仓库。最后需要在左右切换按钮处理和加载图片的过程中对`isShowBottom`变量设置为`true`，避免打开或切换其它图片预览时不显示底部控制栏。
 
 ---
+继续更新，一些小功能优化！
+
++ 菜单栏内按钮点击后自动隐藏
+  这个在右键点击菜单栏后，一直会有显示，即使点击删除文件后，还是会显示。在`assets/App.vue`中设置对应的`this.showContextMenu = false`即可关闭。下载按钮那里是一个a标签的元素，需要改为按钮然后绑定一个函数，具体见代码仓库。
++ 当文件大小超过30MB时才显示全景图按钮
+  需要同时修改`assets/App.vue`和`assets/MediaPreview.vue`，先在`assets/App.vue`中将`file.size`参数传入，再利用`v-if`来判断`size > 30 * 1024 * 1024`来判断是否显示。
+
+---
 
 最后放上去嘉善县缪家村参观拿无人机拍的全景图:
 
