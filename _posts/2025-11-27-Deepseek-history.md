@@ -32,13 +32,19 @@ categories: AI
 可以用下面的python脚本进行测试：
 
 ```python
+
 import requests
+import json
 
 url = "http://your.url/generate"
 
+messages = [{"role": "user", "content": "What's the highest mountain in the world?"},
+            {"role": "assistant", "content": "The highest mountain in the world is Mount Everest."},
+            {"role": "user", "content": "What's the second?"}]
+
 # JSON 数据
 json_data = {
-    "prompt": '[{"role": "user", "content": "What\'s the highest mountain in the world?"},{"role": "assistant", "content": "The highest mountain in the world is Mount Everest."},{"role": "user", "content": "What is the second?"}]',
+    "prompt": f'{messages}',
     "temperature": 0.6,
     "max_length": 512
 }
@@ -55,7 +61,7 @@ response = requests.post(url, json=json_data, headers=headers)
 # 打印响应状态码和内容
 print("Status Code:", response.status_code)
 print("Response Content:", response.text)
-
+print(f"JSON content: {response.json()}")
 ```
 
 也就是说**每次只需要将自己组织好的对话列表按照上面的格式发送到服务器即可**。但是因为显卡的显存有限制，导致了对话列表的上下文不能无限，所以需要根据现存大小对对话历史进行截断。受到一阶马尔科夫链的启发，当前轮对话与上一轮对话相关程度较高，所以我只保存上一轮对话和当前prompt。具体网页js代码如下：
