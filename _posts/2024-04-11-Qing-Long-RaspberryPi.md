@@ -197,3 +197,17 @@ if (TG_PROXY_HOST && TG_PROXY_PORT) {
 
 ![tongji](../../../../assets/images/ql_tongji.jpg)
 
+-----
+2026.3.2更新，青龙平台20.2版本以下有绕过登录的漏洞，不要开公网！！！
+解决方法：
+1. 升级到20.2以上
+2. 参考[这个](https://cloud.tencent.com/developer/article/2454913)限制访问IP范围。命令如下：
+  ```bash
+  # 禁止所有IP
+  iptables -I DOCKER-USER -p tcp -m conntrack --ctorigdstport 5700 --ctdir ORIGINAL -j DROP
+  # 白名单IP范围
+  iptables -I DOCKER-USER -s 218.12.0.0/16 -p tcp -m conntrack --ctorigdstport 5700 --ctdir ORIGINAL -j ACCEPT
+  ```
+3. docker容器创建时使用`-p 127.0.0.1:5700:5700`来限制，同时使用cloudflare tunnel来绑定域名，开启cloudflare access
+
+
