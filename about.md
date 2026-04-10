@@ -157,6 +157,29 @@ Welcome for researching collaborations! Please contact me by email above. Some u
 	<!--</td>-->
     </center>
     </tr>
+	<tr style="width: 100%; margin: 20;">
+    <center>
+    <!--<td style="width: 100%; margin: 20;" cellpadding="10" align="center">-->
+	    <p><strong>Fast online learning algorithm based on modified hierarchical Unimodal Thompson Sampling</strong>
+            <br> 
+            <em> Pattern Recognition (PR) 2026</em>
+            <br> 
+            <text>Tianchi Zhao*</text>,
+			<text>He Liu*</text>,
+			<text>Jing Li</text>,
+            <strong>Yanchao Liu</strong>,
+            <text>Hongyin Shi</text>,
+            <text>Guangzhe Zhao</text>,
+            <a href="https://sem.tsinghua.edu.cn/info/1189/33123.htm">Jinliang Li</a>.
+			<br>
+	        <text>*Joint first authors with equal contribution(*共同一作)</text>
+            <br>
+            <a href="https://linkinghub.elsevier.com/retrieve/pii/S0031320326004899">[Page]</a>&nbsp;
+	    </p>
+	    <p> </p>
+	<!--</td>-->
+    </center>
+    </tr>
 </table>
 
 
