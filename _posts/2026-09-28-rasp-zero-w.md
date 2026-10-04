@@ -134,8 +134,26 @@ sudo raspistill -o image%d.jpg -rot 180 -w 1024 -h 768 -t 20000 -tl 5000 -v
 > 
 > [12] [https://www.digithink.com](https://www.digithink.com/buildnotes/buster-motion-and-bookworm/)
 
+-------------------
+**注意motion在设置picture_output时，不止有on和off两个选项！！！**，参考[官方文档](https://motion-project.github.io/motion_config.html#snapshot_interval):
+> picture_output
+> + Type: Discrete Strings
+> + Range / Valid values: on, off, first, best
+> + Default: off
+> 
+> This option controls the output of the normal image.
+> 'on' is the usual selection.
+> 
+> 'first' is Motion saves only the first motion detected picture per event.
+> 
+> "best" requires a little more CPU power and resources compared to "first". If you set it to "best" Motion saves the picture with most changed pixels during the event. This may be useful if you store movies on a server and want to present a jpeg to show the content of the movie on a webpage.
+> 
+> 'off' to don't write pictures
+> 
+> When the netcam_highres option is selected along with the movie_passthrough the output pictures will be provided in normal resolution not high resolution.
 
-------
+
+-------------------
 
 安装cloudflared时，因为树莓派zero w是armv6l，官方的armhf不支持，只能自行编译。其它参考[这里](https://gist.github.com/sourabhsinha396/47f93374a2adfe2b689fa884acba8cbf)，因为下载链接里都是很小的文件，解压出来啥都没有，所以自行编译了。
 
