@@ -133,3 +133,72 @@ sudo raspistill -o image%d.jpg -rot 180 -w 1024 -h 768 -t 20000 -tl 5000 -v
 > [11] [https://forums.raspberrypi.com](https://forums.raspberrypi.com/viewtopic.php?t=359023)
 > 
 > [12] [https://www.digithink.com](https://www.digithink.com/buildnotes/buster-motion-and-bookworm/)
+
+
+------
+
+安装cloudflared时，因为树莓派zero w是armv6l，官方的armhf不支持，只能自行编译。其它参考[这里](https://gist.github.com/sourabhsinha396/47f93374a2adfe2b689fa884acba8cbf)，因为下载链接里都是很小的文件，解压出来啥都没有，所以自行编译了。
+
+> 树莓派 Zero W 的性能和内存（只有 512MB）极其有限，如果直接在上面编译复杂的 Go 项目（如 cloudflared），很容易因为内存耗尽（OOM）或者主频太低而卡死或编译失败。
+
+关于交叉编译的问题，通过Gemini对话得到如下结论：
+> 不需要专门去找额外的“armv6l 交叉编译工具链”，因为 Go 语言原生自带了强大的交叉编译能力。你只需要安装好 macOS 本地的 Go 环境，就可以直接输出适用于树莓派 Zero W 的二进制文件。
+
+我是在之前的rock5bplus上交叉编译的，首先装一下必要的东西：
+```bash
+sudo apt install git
+```
+
+然后装一下golang，需要版本新一点的，所以不用`apt-get`去安装。先去[官网](https://golang.org)找新一点的版本，然后用`wget`命令去下载，解压安装：
+```bash
+# 1. 解压到 /usr/local 目录
+sudo tar -C /usr/local -xzf go1.27.1.linux-armv64.tar.gz
+
+# 2. 将 Go 路径加入系统环境变量
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+
+# 3. 刷新环境变量使其生效
+source ~/.bashrc
+
+# 4. 验证安装
+go version
+```
+安装完成后，下载和编译cloudflared即可：
+```bash
+# 1. 下载仓库
+git clone https://github.com/cloudflare/cloudflared
+
+# 2. 进入文件夹
+cd cloudflared
+
+# 3. 编译
+env CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=6 go build -v -ldflags "-w -s" -o cloudflared-zero-w ./cmd/cloudflared
+```
+等待编译完成。这时候又出现了幺蛾子，编译时提示：
+> go: downloading github.com/gobwas/ws v1.2.1stream/stream.go:10:2: github.com/getsentry/sentry-go@v0.43.0: Get "https://proxy.golang.org/github.com/getsentry/sentry-go/@v/v0.43.0.zip": dial tcp 142.251.46.81:443: i/o timeout
+
+无奈继续求助Gemini，解决方案如下：
+
+> 这个错误是典型的网络超时问题。因为 Go 默认的代理服务器 proxy.golang.org 在国内或部分网络环境下被墙或连接极不稳定，导致在下载依赖包（如 sentry-go）时直接断开并报 i/o timeout。
+> 要解决这个问题，你只需要在编译前配置一个国内或更快的 Go 模块代理（GOPROXY）。
+> ## 💡 解决方案：配置 Go 代理
+> 在你的 aarch64 设备（或者 Mac）的终端里，先运行以下命令设置环境变量，然后再执行编译：
+> ## 选项 A：使用七牛云代理（国内最推荐，速度极快）
+> 
+> `export GOPROXY=https://goproxy.cn,direct`
+> 
+> ## 选项 B：使用阿里云代理（备选）
+> 
+> `export GOPROXY=https://aliyun.com`
+> 
+> ------------------------------
+> ## 🚀 完整的编译组合命令
+> 将代理配置与之前的编译命令整合在一起，你可以直接复制并运行这一行：
+> 
+> ```bash 
+> env GOPROXY=https://goproxy.cn,direct CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=6 go build -v -ldflags "-w -s" -o cloudflared-zero-w ./cmd/cloudflared
+> ```
+> 
+> 运行后，Go 就会通过国内镜像加速下载剩余的依赖包，顺利完成 cloudflared 的交叉编译。
+> 请试一下这个命令。如果编译成功，我们可以继续处理传输到树莓派后的部署；如果下载完依赖后遇到了其他类似 "out of memory" (内存不足) 的错误，请告诉我，这在一些小内存的 aarch64 设备上很常见，我们可以通过增加 Swap 虚拟内存或限制编译线程数来解决。
+
