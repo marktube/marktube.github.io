@@ -220,3 +220,46 @@ env CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=6 go build -v -ldflags "-w -s" -o 
 > 运行后，Go 就会通过国内镜像加速下载剩余的依赖包，顺利完成 cloudflared 的交叉编译。
 > 请试一下这个命令。如果编译成功，我们可以继续处理传输到树莓派后的部署；如果下载完依赖后遇到了其他类似 "out of memory" (内存不足) 的错误，请告诉我，这在一些小内存的 aarch64 设备上很常见，我们可以通过增加 Swap 虚拟内存或限制编译线程数来解决。
 
+--------------------------------
+
+升级到bookworm内核以上后，原来的wpa_supplicant被nmcli命令代替来连接Wi-Fi，需要通过下面的命令添加Wi-Fi设置：
+> 在 Raspberry Pi OS (Bookworm) 中，如果 Wi-Fi 热点目前没有开启，或者处于隐藏状态，使用 nmcli device wifi connect 会因为找不到 SSID 而报错。
+> 
+> 此时，你可以通过 nmcli connection add 命令直接创建一个新的网络配置文件。只要配置好了 SSID 和密码，未来一旦该 Wi-Fi 信号出现，树莓派就会自动连接。
+> 请在终端中执行以下步骤：
+> 
+> 1. 建立新的 Wi-Fi 配置文件
+> 运行以下命令（请将 你的WiFi名称 和 你的密码 替换为实际的内容）：
+> ```bash
+> sudo nmcli connection add \
+>   type wifi \
+>   con-name "你的WiFi名称" \
+>   ifname wlan0 \
+>   ssid "你的WiFi名称"
+> ```
+> 請謹慎使用程式碼。
+> 注：con-name 是你给这个连接起的名字（方便以后管理），ssid 是实际的 Wi-Fi 名称，建议两者保持一致。wlan0 是树莓派默认的无线网卡名称。
+> 
+> 2. 为该配置绑定 Wi-Fi 密码
+> 刚刚的命令只是创建了框架，接着需要将密码和安全类型（通常是 WPA-PSK）写入该配置：
+> ```bash
+> sudo nmcli connection modify "你的WiFi名称" \
+>   wifi-sec.key-mgmt wpa-psk \
+>   wifi-sec.psk "你的密码"
+> ```
+> 請謹慎使用程式碼。
+> 
+> 3. （可选）如果该 Wi-Fi 是隐藏的 (Hidden SSID)
+> 如果你要连接的 Wi-Fi 设置了“隐藏 SSID”（不对外广播），你需要额外告诉 NetworkManager 主动去扫描它，否则依旧连不上：
+> ```bash
+> sudo nmcli connection modify "你的WiFi名称" wifi.hidden yes
+> ```
+> 請謹慎使用程式碼。
+> 
+> 4. 启用该连接
+> 最后，让这个配置文件正式生效。系统会将其保存在后台，并默认开启自动连接。一旦该 Wi-Fi 进入信号范围内，树莓派就会自动握手连接：
+> ```bash
+> sudo nmcli connection up "你的WiFi名称"
+> ```
+> 請謹慎使用程式碼。
+> (提示：由于当前没有该 Wi-Fi 信号，运行 up 命令可能会提示激活失败，这是正常现象，配置文件已经成功保存并处于就绪状态。)
