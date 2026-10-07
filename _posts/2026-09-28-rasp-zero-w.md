@@ -263,3 +263,41 @@ env CGO_ENABLED=0 GOOS=linux GOARCH=arm GOARM=6 go build -v -ldflags "-w -s" -o 
 > ```
 > 請謹慎使用程式碼。
 > (提示：由于当前没有该 Wi-Fi 信号，运行 up 命令可能会提示激活失败，这是正常现象，配置文件已经成功保存并处于就绪状态。)
+
+另外可以使用`nmtui`命令来编辑网络页面。
+
+--------------
+
+goauthing校园网配置，参考[官方仓库](https://github.com/z4yx/GoAuthing/#systemd)说明配置成系统服务。
+注意要安装acl才能使用`setfacl`命令。参考gemini回答如下：
+> 在树莓派 Zero W（通常运行基于 Debian 的 Raspberry Pi OS）上出现 -bash: setfacl: command not found 错误，是因为系统默认没有安装处理文件访问控制列表（ACL）的工具包 acl。
+> 你可以通过以下两个步骤来解决这个问题：
+> ## 第一步：安装 acl 工具包
+> 在终端中执行以下命令来更新软件源并安装 acl 包：
+>
+> ```bash
+> sudo apt update
+> sudo apt install acl -y
+> ```
+> 
+> 安装完成后，setfacl 和 getfacl 命令就可以正常使用了。 [1] 
+> ## 第二步：检查文件系统是否启用了 ACL（通常不需要手动设置）
+> 在较新的 Raspberry Pi OS（使用 ext4 文件系统）中，系统内核和挂载选项默认已经开启了 ACL 支持。
+> 如果你安装完 setfacl 后使用时仍报错 Operation not supported（操作不支持），你需要手动在挂载选项中开启它：
+> 
+>    1. 打开挂载配置文件：
+> ```bash   
+>    sudo nano /etc/fstab
+> ```   
+>    2. 找到挂载根目录 / 的那一行，在配置选项（如 defaults）后面加上 ,acl。例如：
+> ```bash   
+>    PARTUUID=xxxxxx-02  /  ext4  defaults,noatime,acl  0  1
+> ```   
+>    3. 保存退出（在 nano 中按 Ctrl + O 确认，再按 Ctrl + X 退出），然后重启树莓派：
+> ```bash   
+>    sudo reboot
+> ```   
+>    
+> 
+> 
+> [1] [https://www.netkiller.cn](https://www.netkiller.cn/download/pdf/Netkiller-Linux.pdf)
