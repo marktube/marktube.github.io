@@ -207,3 +207,20 @@ sudo tlmgr install etoolbox luainputenc titlesec multirow pgfplots algorithms ch
 --------------------
 
 附上一个windows上装[Clash verge rev的小技巧](https://github.com/clash-verge-rev/clash-verge-rev/discussions/6666)，只要把exe后缀改为7z，然后解压就行。
+
+--------------------
+
+macOS的Login Items里面有sh，有时候需要检查和删除，参考[这里](https://en.paxa.dev/posts/macos-login-items)移除。
+> Investigating the sh item
+> ```bash
+> # See the full "sh" entry in login items
+> sfltool dumpbtm | grep -i "sh"
+>
+> # Check if any LaunchAgent points to /bin/sh
+> grep -r "/bin/sh" ~/Library/LaunchAgents/ /Library/LaunchAgents/ 2>/dev/null
+> ```
+> If the `grep` result shows a `.plist` file, open it to see what it executes:
+> ```bash
+> cat ~/Library/LaunchAgents/FILE_NAME.plist
+> ```
+> This lets you see exactly which script or command is being run at login.
