@@ -1,0 +1,174 @@
+---
+layout: default-codie
+disqus: false
+archive: false
+post_class: codie-post-template
+---
+
+<!-- MathJax 公式 -->
+<!-- mathjax config similar to math.stackexchange -->
+{% if page.mathjax %}
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    "HTML-CSS": {
+      availableFonts: ["STIX", "TeX"], //可选字体
+      webFont: "TeX",
+      showMathMenu: true, //关闭右击菜单显示
+      linebreaks: { automatic: true, width: "94%container" },
+      matchFontHeight: true,
+      imageFont: null
+    }
+  });
+</script>
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+
+<script type="text/javascript"
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+{% endif %}
+
+<!-- pseudo.js config -->
+{% if page.pseudocode %}
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"
+
+integrity="sha512-EKW5YvKU3hpyyOcN6jQnAxO/L8gts+YdYV6Yymtl8pk9YlYFtqJgihORuRoBXK8/cOIlappdU6Ms8KdK6yBCgA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.css">
+<script
+src="https://cdn.jsdelivr.net/npm/pseudocode@latest/build/pseudocode.min.js">
+</script>
+
+{% endif %}
+
+<!-- Pannellum config -->
+{% if page.pannellum %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+<style>
+div.panoramax {
+    width: 300px;
+    height: 200px;
+}
+</style>
+{% endif %}
+
+<!-- Lead: ONLY the body's OPENING blockquote becomes the lead (page.lead is ignored); else none -->
+{% assign lead_from_excerpt = "" %}
+{% assign excerpt_head = page.excerpt | strip | slice: 0, 11 %}
+{% if excerpt_head == "<blockquote" and page.excerpt contains 'blockquote' %}
+  {% assign lead_from_excerpt = page.excerpt | strip_html | strip_newlines | strip %}
+{% endif %}
+
+<main class="codie-main" role="main">
+
+    <article class="post{% if lead_from_excerpt != "" %} lead-from-excerpt{% endif %}">
+
+        <header class="article-heading">
+            <a class="back-link" href="{{ site.baseurl }}">&larr; 返回文章列表</a>
+            <p class="post-meta">
+                {% if page.categories.size > 0 %}<span class="post-categories">{{ page.categories | join: " / " }}</span>{% endif %}
+                <time class="post-date" datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date_to_string }}</time>
+            </p>
+            <h1 class="post-title">{{ page.title }}<span class="title-dot">.</span></h1>
+            {% if lead_from_excerpt != "" %}
+            <p class="lead">{{ lead_from_excerpt }}</p>
+            {% endif %}
+        </header>
+
+        {% if page.cover %}
+        <figure class="article-banner">
+            <img src="{{ page.cover }}" alt="{{ page.title | escape }}" />
+        </figure>
+        {% endif %}
+
+        {% unless page.toc == false %}
+        <details class="toc-mobile">
+            <summary>本文目录</summary>
+            <nav id="toc-mobile" class="toc" aria-label="本文目录"></nav>
+        </details>
+        {% endunless %}
+
+        <div class="article-layout{% if page.toc == false %} no-toc{% endif %}">
+            {% unless page.toc == false %}
+            <aside class="toc-wrap">
+                <p class="toc-title">本文目录</p>
+                <nav id="toc" class="toc" aria-label="本文目录"></nav>
+            </aside>
+            {% endunless %}
+
+            <section class="post-content prose">
+                {{ content }}
+            </section>
+        </div>
+
+        {% if page.archive %}
+        <section class="archive">
+            <h5>Archive</h5>
+            <ul>
+                {% for post in site.posts %}
+                    <li><span>{{ post.date | date_to_string }}</span>  <a href="{{ post.url }}">{{ post.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        <footer class="article-end post-footer{% if page.disqus_invert %} disqus-invert{% endif %}">
+            <div class="author-share">
+                <!-- If we want to display author's name and bio -->
+                {% if site.author %}
+                    <div class="author-block">
+                        <a class="author-avatar" href="{{ site.baseurl }}" style="background-image: url(/assets/images/profile.jpg)">
+                            <span class="hidden">{{ site.author }}'s Picture</span></a>
+                        <section class="author">
+                            <!-- Author Name -->
+                            <h4>{{ site.author }}</h4>
+                            <!-- Author Bio -->
+                            <p>一飞冲天，风之积方抟鹏；三献刖足，玉其琢乃成器。</p>
+                        </section>
+                    </div>
+                {% endif %}
+
+                <!-- Share links (same include as original post.html), grouped with author -->
+                {% include share.html %}
+            </div>
+
+            <!-- tip section -->
+            <div class="tip-block">
+                {% include tip.html %}
+            </div>
+
+            <!-- Disqus comments -->
+            {% if page.disqus %}{% include disqus.html %}{% endif %}
+
+            <!-- Live2D Widget section -->
+            {% include waifu.html %}
+
+            <!-- mermaid rendering -->
+            {% if page.mermaid %}{% include mermaid.html %}{% endif %}
+
+            <!-- pseudocode rendering -->
+            {% if page.pseudocode %}{% include pseudocode.html %}{% endif %}
+        </footer>
+
+    </article>
+
+</main>

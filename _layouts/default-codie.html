@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }} - {{ site.description }}</title>
+    <meta name="description" content="{% if page.lead %}{{ page.lead | strip_html | escape }}{% else %}{{ site.meta_description }}{% endif %}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="google-site-verification" content="E5QWjEt__JKMGX4N_H_MlsBrj6ul7FA34r6hwd-0GhY" />
+
+    <!-- Apply the saved theme before first paint to avoid a flash -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('marktube-theme');
+          document.documentElement.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+
+    {% assign codie_v = "20261106-r6" %}
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/css/codie.css' | relative_url }}?v={{ codie_v }}" />
+</head>
+<body class="codie {% if page.post_class %}{{ page.post_class }}{% else %}codie-home-template{% endif %}">
+
+    <div class="progress" id="progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a class="site-brand" href="{{ site.baseurl }}">{{ site.name }}</a>
+            <span class="site-tagline">{{ site.description }}</span>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换主题 / Toggle theme" title="切换主题">&#9680;</button>
+        </div>
+    </header>
+
+    {{ content }}
+
+    <footer class="site-footer">
+        <div class="site-footer-inner">
+            <a href="{{ site.baseurl }}">{{ site.name }}</a> &copy; {{ site.time | date: "%Y" }} &bull; All rights reserved.
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="{{ '/assets/js/codie.js' | relative_url }}?v={{ codie_v }}"></script>
+
+    <!-- Google Analytics Tracking code -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', '{{ site.google_analytics }}', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
+</body>
+</html>

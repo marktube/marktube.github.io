@@ -1,0 +1,616 @@
+/* codie.css — article-style theme for the post-codie layout.
+   Self-contained: system font stack only, light + dark via [data-theme]. */
+
+:root {
+  --bg: #f5f5f7;
+  --surface: #fff;
+  --surface-alt: #f5f5f7;
+  --ink: #1d1d1f;
+  --muted: #6e6e73;
+  --faint: #86868b;
+  --line: rgba(29, 29, 31, .10);
+  --accent: #0071e3;
+  --accent-soft: #e8f2ff;
+  --code: #eef2f7;
+  --header-bg: rgba(245, 245, 247, .78);
+  --shadow: 0 10px 34px rgba(0, 0, 0, .07);
+  --radius: 26px;
+  --shell: 1120px;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --header-h: 56px;
+  --article-w: 760px;
+}
+
+[data-theme="dark"] {
+  --bg: #111114;
+  --surface: #1c1c1e;
+  --surface-alt: #2c2c2e;
+  --ink: #f5f5f7;
+  --muted: #a1a1a6;
+  --faint: #86868b;
+  --line: rgba(245, 245, 247, .14);
+  --accent: #2997ff;
+  --accent-soft: rgba(41, 151, 255, .16);
+  --code: #26262a;
+  --header-bg: rgba(17, 17, 20, .78);
+  --shadow: 0 10px 34px rgba(0, 0, 0, .45);
+}
+
+/* Icon font copied from the Kasper theme's screen.css. The files live in the
+   repo's /assets/fonts/ (not shipped with this template). */
+@font-face {
+  font-family: "casper-icons";
+  src: url("../fonts/casper-icons.eot");
+  src: url("../fonts/casper-icons.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/casper-icons.woff") format("woff"),
+       url("../fonts/casper-icons.ttf") format("truetype"),
+       url("../fonts/casper-icons.svg#icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "casper-icons", "Open Sans", sans-serif;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  text-decoration: none !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-x:before { content: "\e902"; }
+.icon-weibo:before { content: "\e900"; font-size: 1.1em; }
+.icon-facebook:before { content: "\f604"; }
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: auto; -webkit-text-size-adjust: 100%; }
+
+body.codie {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.75 var(--font);
+  -webkit-font-smoothing: antialiased;
+  transition: background .25s ease, color .25s ease;
+}
+
+body.codie a { color: var(--accent); text-decoration: none; }
+body.codie a:hover { text-decoration: underline; }
+body.codie img { max-width: 100%; height: auto; }
+.hidden { display: none; }
+
+/* ---------- progress bar + header ---------- */
+.progress {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 60;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: var(--header-h);
+  background: var(--header-bg);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header-inner {
+  max-width: var(--shell);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.site-brand {
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: -.02em;
+  color: var(--ink) !important;
+}
+.site-brand:hover { text-decoration: none !important; }
+
+.site-tagline { font-size: 13px; color: var(--faint); }
+
+.theme-toggle {
+  margin-left: auto;
+  width: 36px; height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+}
+.theme-toggle:hover { transform: rotate(20deg); }
+.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- article heading ---------- */
+.codie-main {
+  max-width: var(--shell);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Article column width: ONE rule. Footer, archive, tip, share and comments
+   all use --article-w (the prose column) and are centered. */
+.article-heading {
+  max-width: 880px;
+  /* left edge aligned with the TOC+prose grid below (996px, centered) */
+  margin-left: max(0px, calc((100% - 996px) / 2));
+  padding: 56px 0 34px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 26px;
+  font-size: 14px;
+  color: var(--muted) !important;
+}
+.back-link:hover { color: var(--accent) !important; text-decoration: none !important; }
+
+.article-heading .post-meta {
+  margin: 0 0 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.post-categories::after {
+  content: "";
+  display: inline-block;
+  width: 4px; height: 4px;
+  margin: 0 10px 2px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.article-heading .post-title {
+  margin: 0;
+  font-size: clamp(38px, 4.7vw, 58px);
+  line-height: 1.08;
+  letter-spacing: -.06em;
+  font-weight: 700;
+}
+.title-dot { color: var(--accent); }
+
+.article-heading .lead {
+  margin: 22px 0 0;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* Lead taken from the opening blockquote: hide ONLY that first blockquote
+   (its text is already shown as .lead). Later blockquotes are untouched. */
+.lead-from-excerpt .prose > blockquote:first-child { display: none; }
+
+.article-banner {
+  margin: 0 0 40px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.article-banner img { display: block; width: 100%; }
+
+/* ---------- layout: TOC + prose ---------- */
+.article-layout {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 760px);
+  gap: 56px;
+  justify-content: center;
+  align-items: start;
+}
+.article-layout.no-toc { grid-template-columns: minmax(0, 760px); }
+
+.toc-wrap {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+  align-self: start;
+}
+
+.toc {
+  font-size: 15px;
+  line-height: 1.6;
+  border-left: 1px solid var(--line);
+}
+.toc:empty::before { content: "暂无目录"; display: block; padding: 6px 0 6px 14px; color: var(--faint); }
+.toc-title {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: var(--muted);
+}
+.toc-mobile { display: none; }
+.toc a {
+  display: block;
+  padding: 6px 0 6px 14px;
+  margin-left: -1px;
+  border-left: 2px solid transparent;
+  color: var(--muted) !important;
+}
+/* Level indent is relative to the shallowest heading present (set by codie.js
+   as data-depth 0-4), so an h4-only post is not indented. Indent is capped at
+   66px so deep entries still fit the 180px sidebar (they wrap, never overflow). */
+.toc a { overflow-wrap: anywhere; }
+.toc a[data-depth="1"] { padding-left: 28px; }
+.toc a[data-depth="2"] { padding-left: 42px; }
+.toc a[data-depth="3"] { padding-left: 54px; }
+.toc a[data-depth="4"] { padding-left: 66px; }
+.toc a:hover { color: var(--ink) !important; text-decoration: none !important; }
+.toc a.active {
+  color: var(--accent) !important;
+  border-left-color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---------- prose ---------- */
+.prose {
+  min-width: 0;
+  font-size: 16px;
+  line-height: 1.95;
+  overflow-wrap: break-word;
+}
+.prose > p:first-child { font-size: 18px; }
+.prose p { margin: 0 0 1.2em; }
+
+.prose h2 {
+  margin: 2.4em 0 .8em;
+  padding-top: 1.1em;
+  border-top: 1px solid var(--line);
+  font-size: 29px;
+  line-height: 1.25;
+  letter-spacing: -.035em;
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+.prose > h2:first-child { margin-top: 0; }
+.prose h3 {
+  margin: 1.8em 0 .6em;
+  font-size: 21px;
+  line-height: 1.35;
+  letter-spacing: -.02em;
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+/* Heading ladder, always above the 16px body: 29 / 21 / 19 / 17 / 16 (h5/h6 bold). */
+.prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  font-weight: 700;
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+.prose h4 {
+  margin: 1.6em 0 .5em;
+  font-size: 19px;
+  line-height: 1.4;
+}
+.prose h5 {
+  margin: 1.4em 0 .4em;
+  font-size: 17px;
+  line-height: 1.45;
+}
+.prose h6 {
+  margin: 1.3em 0 .4em;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.prose ul, .prose ol { margin: 0 0 1.2em; padding-left: 1.5em; }
+.prose li { margin: .3em 0; }
+
+.prose blockquote {
+  margin: 1.6em 0;
+  padding: 4px 0 4px 20px;
+  border-left: 3px solid var(--accent);
+  color: var(--muted);
+}
+.prose blockquote p:last-child { margin-bottom: 0; }
+
+.prose code {
+  padding: .12em .42em;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font: .88em var(--mono);
+}
+.prose pre {
+  margin: 1.5em 0;
+  padding: 18px 20px;
+  overflow-x: auto;
+  border-radius: 16px;
+  background: var(--code);
+  font-size: 14px;
+  line-height: 1.65;
+}
+.prose pre code,
+.prose .highlight code { padding: 0; background: none; color: inherit; font-size: inherit; }
+.prose .highlight { margin: 1.5em 0; border-radius: 16px; background: var(--code); overflow-x: auto; }
+.prose .highlight pre { margin: 0; background: none; }
+
+.prose table {
+  width: 100%;
+  margin: 1.6em 0;
+  border-collapse: collapse;
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+.prose th, .prose td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.prose th {
+  font-size: 12px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom-color: var(--ink);
+}
+
+.prose hr { margin: 2.4em 0; border: 0; border-top: 1px solid var(--line); }
+.prose img { border-radius: 14px; }
+.prose .lab, .prose .lab-note, .prose .equation, .prose pre { max-width: 100%; }
+.prose .equation { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* ---------- equation / lab blocks ---------- */
+.prose .equation {
+  margin: 1.6em 0;
+  padding: 16px 20px;
+  overflow-x: auto;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  background: var(--code);
+  font: 15px/1.7 var(--mono);
+}
+
+.prose .lab {
+  margin: 2em 0;
+  padding: 26px;
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.prose .lab-kicker {
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.prose .lab h3 { margin: 0 0 8px; font-size: 21px; }
+.prose .lab-intro { margin: 0 0 18px; font-size: 13px; line-height: 1.6; color: var(--muted); }
+.prose .lab-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
+  margin-bottom: 18px;
+}
+.prose .lab-fields label { display: block; font-size: 12px; color: var(--muted); }
+.prose .lab-fields input,
+.prose .lab-fields select {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface-alt);
+  color: var(--ink);
+  font: 15px var(--font);
+}
+.prose .lab-fields input:focus,
+.prose .lab-fields select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+.prose .lab button,
+.prose .lab .pill {
+  display: inline-block;
+  padding: 9px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font: 600 14px var(--font);
+  cursor: pointer;
+}
+.prose .lab button.secondary,
+.prose .lab .pill.secondary { background: var(--accent-soft); color: var(--accent); }
+
+.prose .lab-insight {
+  margin-top: 18px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: var(--surface-alt);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.prose .lab-note {
+  margin: 1.6em 0;
+  padding: 2px 0 2px 18px;
+  border-left: 3px solid var(--accent);
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+.prose .lab-note p { margin: 0 0 .6em; }
+.prose .lab-note p:last-child { margin-bottom: 0; }
+
+/* ---------- references ---------- */
+.prose .references,
+.prose .references li {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.prose .references { margin-top: 1.2em; }
+
+/* ---------- archive, author, tip ---------- */
+/* Footer/archive alignment (ONE mechanism): on desktop both sit in the prose
+   column. Their left margin mirrors the heading's rule
+   ((100% - 996px) / 2, the grid's left edge) plus the 180px TOC column and
+   56px gap (= 236px). max(236px, ...) keeps them on the prose column when the
+   shell is narrower than the 996px grid. Width stays --article-w (760px), so
+   tip / share / Disqus are centered within the prose column. <=950px: auto. */
+.archive,
+.article-end {
+  max-width: var(--article-w);
+  margin-left: max(236px, calc((100% - 996px) / 2 + 236px));
+  margin-right: 0;
+}
+.archive { margin-top: 40px; font-size: 14px; }
+.archive ul { padding-left: 1.2em; }
+
+.article-end {
+  margin-top: 56px;
+  padding: 32px 0 64px;
+  border-top: 1px solid var(--line);
+}
+
+/* Author + share group (as the original .post-footer: share is pinned to the
+   right, the author text leaves 180px for it). */
+.author-share { position: relative; margin-bottom: 36px; }
+.author-block { display: flex; align-items: center; gap: 18px; margin-right: 180px; }
+.author-share .share { position: absolute; top: 0; right: 0; width: 140px; }
+.author-share .share h4 { margin: 0; font-size: 14px; color: var(--muted); }
+/* Sizing (root 16px): weibo 1.1em of 1.25rem = 22px, others 20px, right margin
+   .9rem = 14.4px each: 22+14.4 + 20+14.4 + 20+14.4 = 105.2px <= 140px, so all
+   three icons stay on ONE line with ~35px to spare. */
+.author-share .share a {
+  display: inline-block;
+  margin: .8rem .9rem 1.2rem 0;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: #BBC7CC !important;
+  text-decoration: none !important;
+}
+.author-share .share a:hover { color: #50585D !important; }
+[data-theme="dark"] .author-share .share a:hover { color: #e5e5ea !important; }
+.author-avatar {
+  flex: 0 0 64px;
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 0 1px var(--line);
+}
+.author h4 { margin: 0 0 2px; font-size: 17px; }
+.author p { margin: 0; font-size: 14px; color: var(--muted); }
+
+.tip-block {
+  padding: 22px;
+  border-radius: 20px;
+  background: var(--surface);
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+}
+.tip-block { max-width: 100%; margin: 0 auto; overflow-x: auto; }
+.tip-block table { width: 100% !important; max-width: 560px; margin: 0 auto !important; border-collapse: collapse; table-layout: fixed; }
+.tip-block img { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+.tip-block { margin-top: 0; }
+/* Disqus: original has no .disqus rules; its room comes from the footer's
+   6rem padding. Here: 48px margin + 32px padding + subtle top rule. */
+.article-end .disqus {
+  max-width: 100%;
+  margin: 48px 20px 0; /* side margins so the thread never touches the column edges */
+  padding: 32px 20px; /* side padding inside the card */
+  box-sizing: border-box;
+  background: var(--surface); /* a visible card in BOTH modes: without it the
+    side spacing is invisible in light mode (transparent section on a #f5f5f7
+    page), which is why light mode looked flush while dark mode looked fine */
+  border-radius: 20px;
+  border-top: 1px solid var(--line);
+  text-align: left;
+  overflow-x: auto;
+}
+.article-end .disqus #disqus_thread { text-align: left; }
+/* Dark mode. Disqus (Auto scheme) picks light/dark from the colours it
+   inherits at load time, so give the container the dark ink colour AND a dark
+   background (some reports say it keys on background-color, not text colour)
+   plus color-scheme: dark (scrollbars/controls); codie.js reloads the embed
+   on toggle. Opt-in fallback for a forum forced to Light in Disqus admin:
+   front matter `disqus_invert: true` inverts the iframe (an approximation,
+   not a native theme). */
+[data-theme="dark"] .article-end .disqus { color: var(--ink); color-scheme: dark; }
+[data-theme="dark"] .article-end.disqus-invert .disqus #disqus_thread iframe {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Live2D waifu: the original waifu.css pins it bottom-LEFT, where it covers
+   the sticky TOC sidebar. Move it to bottom-right with overrides in this file
+   only — waifu.css / autoload.js / waifu-tips.js are untouched. waifu.css is
+   loaded dynamically AFTER codie.css, so these selectors use body.codie to win
+   on specificity (no !important). The widget JS only ever sets inline
+   style.bottom / display, never left/right, so these rules hold. */
+body.codie #waifu { left: auto; right: 0; }
+body.codie #waifu-toggle { left: auto; right: 0; margin-left: 0; margin-right: -100px; }
+body.codie #waifu-toggle.waifu-toggle-active { margin-left: 0; margin-right: -50px; }
+body.codie #waifu-toggle.waifu-toggle-active:hover { margin-left: 0; margin-right: -30px; }
+/* Tool icons sit to the right of the character by default (right: -10px),
+   which would hang off-screen on the right edge — flip them to the left. */
+body.codie #waifu-tool { right: auto; left: -10px; }
+.tip-block .p_tip_class { margin: 0 0 14px; }
+.tip-block .tip_td_class { padding: 6px; text-align: center; font-size: 13px; vertical-align: top; }
+.tip-block img { border-radius: 10px; background: #fff; }
+
+.site-footer { padding: 28px 24px 48px; text-align: center; font-size: 12px; color: var(--faint); }
+.site-footer a { color: var(--faint) !important; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 950px) {
+  .article-layout,
+  .article-layout.no-toc { grid-template-columns: minmax(0, 1fr); }
+  .toc-wrap { display: none; }
+  .article-heading { margin-left: 0; }
+  .archive, .article-end { margin-left: auto; margin-right: auto; }
+  .toc-mobile {
+    display: block;
+    margin: 0 0 28px;
+    padding: 12px 18px;
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+  .toc-mobile summary { cursor: pointer; font-weight: 700; font-size: 14px; color: var(--muted); }
+  .toc-mobile[open] summary { margin-bottom: 8px; }
+}
+
+@media (max-width: 680px) {
+  .site-tagline { display: none; }
+  .site-header-inner, .codie-main { padding-left: 18px; padding-right: 18px; }
+  .article-heading { padding-top: 36px; }
+  .article-heading .post-title { font-size: clamp(28px, 8.5vw, 38px); overflow-wrap: anywhere; }
+  .site-brand { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tip-block { padding: 16px 10px; }
+  .article-heading .lead, .prose > p:first-child { font-size: 17px; }
+  .prose { line-height: 1.85; }
+  .prose h2 { font-size: 24px; }
+  .prose h3 { font-size: 19px; }
+  .prose h4 { font-size: 18px; }
+  .prose h5 { font-size: 17px; }
+  .prose h6 { font-size: 16px; }
+  .prose .lab { padding: 20px; }
+  .prose .lab-fields { grid-template-columns: 1fr; }
+  .prose table { display: block; overflow-x: auto; }
+  .author-block { align-items: flex-start; margin-right: 0; }
+  .author-share .share { position: static; width: auto; margin-top: 18px; }
+  .author-share .share a { margin: .8rem .9rem 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
