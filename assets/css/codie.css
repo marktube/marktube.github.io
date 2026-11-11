@@ -341,6 +341,132 @@ body.codie img { max-width: 100%; height: auto; }
 .prose .highlight { margin: 1.5em 0; border-radius: 16px; background: var(--code); overflow-x: auto; }
 .prose .highlight pre { margin: 0; background: none; }
 
+/* Syntax highlighting (rouge token colours). The codie layout only loads this
+   file, so without these rules every token renders in the plain body colour.
+   Light mode is an exact port of the original theme's _sass/_syntax.scss
+   (classic GitHub palette, as the old template showed); dark mode uses a
+   GitHub-Dark-inspired palette for the same token classes. The container
+   background stays var(--code) instead of the original's #fff. */
+.prose .highlight .c { color: #999988; font-style: italic; } /* Comment */
+.prose .highlight .err { color: #a61717; background-color: #e3d2d2; } /* Error */
+.prose .highlight .k { font-weight: bold; } /* Keyword */
+.prose .highlight .o { font-weight: bold; } /* Operator */
+.prose .highlight .cm { color: #999988; font-style: italic; } /* Comment.Multiline */
+.prose .highlight .cp { color: #999999; font-weight: bold; } /* Comment.Preproc */
+.prose .highlight .c1 { color: #999988; font-style: italic; } /* Comment.Single */
+.prose .highlight .cs { color: #999999; font-weight: bold; font-style: italic; } /* Comment.Special */
+.prose .highlight .gd { color: #000000; background-color: #ffdddd; } /* Generic.Deleted */
+.prose .highlight .gd .x { color: #000000; background-color: #ffaaaa; }
+.prose .highlight .ge { font-style: italic; } /* Generic.Emph */
+.prose .highlight .gr { color: #aa0000; } /* Generic.Error */
+.prose .highlight .gh { color: #999999; } /* Generic.Heading */
+.prose .highlight .gi { color: #000000; background-color: #ddffdd; } /* Generic.Inserted */
+.prose .highlight .gi .x { color: #000000; background-color: #aaffaa; }
+.prose .highlight .go { color: #888888; } /* Generic.Output */
+.prose .highlight .gp { color: #555555; } /* Generic.Prompt */
+.prose .highlight .gs { font-weight: bold; } /* Generic.Strong */
+.prose .highlight .gu { color: #aaaaaa; } /* Generic.Subheading */
+.prose .highlight .gt { color: #aa0000; } /* Generic.Traceback */
+.prose .highlight .kc { font-weight: bold; } /* Keyword.Constant */
+.prose .highlight .kd { font-weight: bold; } /* Keyword.Declaration */
+.prose .highlight .kp { font-weight: bold; } /* Keyword.Pseudo */
+.prose .highlight .kr { font-weight: bold; } /* Keyword.Reserved */
+.prose .highlight .kt { color: #445588; font-weight: bold; } /* Keyword.Type */
+.prose .highlight .m { color: #009999; } /* Literal.Number */
+.prose .highlight .s { color: #d14; } /* Literal.String */
+.prose .highlight .na { color: #008080; } /* Name.Attribute */
+.prose .highlight .nb { color: #0086b3; } /* Name.Builtin */
+.prose .highlight .nc { color: #445588; font-weight: bold; } /* Name.Class */
+.prose .highlight .no { color: #008080; } /* Name.Constant */
+.prose .highlight .ni { color: #800080; } /* Name.Entity */
+.prose .highlight .ne { color: #990000; font-weight: bold; } /* Name.Exception */
+.prose .highlight .nf { color: #990000; font-weight: bold; } /* Name.Function */
+.prose .highlight .nn { color: #555555; } /* Name.Namespace */
+.prose .highlight .nt { color: #000080; } /* Name.Tag */
+.prose .highlight .nv { color: #008080; } /* Name.Variable */
+.prose .highlight .ow { font-weight: bold; } /* Operator.Word */
+.prose .highlight .w { color: #bbbbbb; } /* Text.Whitespace */
+.prose .highlight .mf { color: #009999; } /* Literal.Number.Float */
+.prose .highlight .mh { color: #009999; } /* Literal.Number.Hex */
+.prose .highlight .mi { color: #009999; } /* Literal.Number.Integer */
+.prose .highlight .mo { color: #009999; } /* Literal.Number.Oct */
+.prose .highlight .sb { color: #d14; } /* Literal.String.Backtick */
+.prose .highlight .sc { color: #d14; } /* Literal.String.Char */
+.prose .highlight .sd { color: #d14; } /* Literal.String.Doc */
+.prose .highlight .s2 { color: #d14; } /* Literal.String.Double */
+.prose .highlight .se { color: #d14; } /* Literal.String.Escape */
+.prose .highlight .sh { color: #d14; } /* Literal.String.Heredoc */
+.prose .highlight .si { color: #d14; } /* Literal.String.Interpol */
+.prose .highlight .sx { color: #d14; } /* Literal.String.Other */
+.prose .highlight .sr { color: #009926; } /* Literal.String.Regex */
+.prose .highlight .s1 { color: #d14; } /* Literal.String.Single */
+.prose .highlight .ss { color: #990073; } /* Literal.String.Symbol */
+.prose .highlight .bp { color: #999999; } /* Name.Builtin.Pseudo */
+.prose .highlight .vc { color: #008080; } /* Name.Variable.Class */
+.prose .highlight .vg { color: #008080; } /* Name.Variable.Global */
+.prose .highlight .vi { color: #008080; } /* Name.Variable.Instance */
+.prose .highlight .il { color: #009999; } /* Literal.Number.Integer.Long */
+
+[data-theme="dark"] .prose .highlight .c,
+[data-theme="dark"] .prose .highlight .cm,
+[data-theme="dark"] .prose .highlight .c1 { color: #8b949e; font-style: italic; }
+[data-theme="dark"] .prose .highlight .err { color: #ff7b72; background-color: rgba(248, 81, 73, .15); }
+[data-theme="dark"] .prose .highlight .k,
+[data-theme="dark"] .prose .highlight .kc,
+[data-theme="dark"] .prose .highlight .kd,
+[data-theme="dark"] .prose .highlight .kp,
+[data-theme="dark"] .prose .highlight .kr,
+[data-theme="dark"] .prose .highlight .o,
+[data-theme="dark"] .prose .highlight .ow { color: #ff7b72; font-weight: bold; }
+[data-theme="dark"] .prose .highlight .cp { color: #8b949e; font-weight: bold; }
+[data-theme="dark"] .prose .highlight .cs { color: #8b949e; font-weight: bold; font-style: italic; }
+[data-theme="dark"] .prose .highlight .gd { color: #ffa198; background-color: rgba(248, 81, 73, .15); }
+[data-theme="dark"] .prose .highlight .gd .x { color: #ffa198; background-color: rgba(248, 81, 73, .3); }
+[data-theme="dark"] .prose .highlight .ge { font-style: italic; }
+[data-theme="dark"] .prose .highlight .gr { color: #ff7b72; }
+[data-theme="dark"] .prose .highlight .gh { color: #8b949e; }
+[data-theme="dark"] .prose .highlight .gi { color: #3fb950; background-color: rgba(63, 185, 80, .15); }
+[data-theme="dark"] .prose .highlight .gi .x { color: #3fb950; background-color: rgba(63, 185, 80, .3); }
+[data-theme="dark"] .prose .highlight .go { color: #8b949e; }
+[data-theme="dark"] .prose .highlight .gp { color: #8b949e; }
+[data-theme="dark"] .prose .highlight .gs { font-weight: bold; }
+[data-theme="dark"] .prose .highlight .gu { color: #8b949e; }
+[data-theme="dark"] .prose .highlight .gt { color: #ff7b72; }
+[data-theme="dark"] .prose .highlight .kt { color: #ffa657; font-weight: bold; }
+[data-theme="dark"] .prose .highlight .m,
+[data-theme="dark"] .prose .highlight .mf,
+[data-theme="dark"] .prose .highlight .mh,
+[data-theme="dark"] .prose .highlight .mi,
+[data-theme="dark"] .prose .highlight .mo,
+[data-theme="dark"] .prose .highlight .il { color: #79c0ff; }
+[data-theme="dark"] .prose .highlight .s,
+[data-theme="dark"] .prose .highlight .sb,
+[data-theme="dark"] .prose .highlight .sc,
+[data-theme="dark"] .prose .highlight .sd,
+[data-theme="dark"] .prose .highlight .s2,
+[data-theme="dark"] .prose .highlight .se,
+[data-theme="dark"] .prose .highlight .sh,
+[data-theme="dark"] .prose .highlight .si,
+[data-theme="dark"] .prose .highlight .sx,
+[data-theme="dark"] .prose .highlight .s1 { color: #a5d6ff; }
+[data-theme="dark"] .prose .highlight .sr { color: #7ee787; }
+[data-theme="dark"] .prose .highlight .ss { color: #79c0ff; }
+[data-theme="dark"] .prose .highlight .na,
+[data-theme="dark"] .prose .highlight .nb,
+[data-theme="dark"] .prose .highlight .no,
+[data-theme="dark"] .prose .highlight .nv,
+[data-theme="dark"] .prose .highlight .vc,
+[data-theme="dark"] .prose .highlight .vg,
+[data-theme="dark"] .prose .highlight .vi { color: #79c0ff; }
+[data-theme="dark"] .prose .highlight .nc { color: #ffa657; font-weight: bold; }
+[data-theme="dark"] .prose .highlight .ni { color: #d2a8ff; }
+[data-theme="dark"] .prose .highlight .ne { color: #ffa198; font-weight: bold; }
+[data-theme="dark"] .prose .highlight .nf { color: #d2a8ff; font-weight: bold; }
+[data-theme="dark"] .prose .highlight .nn { color: #8b949e; }
+[data-theme="dark"] .prose .highlight .nt { color: #7ee787; }
+[data-theme="dark"] .prose .highlight .bp { color: #8b949e; }
+[data-theme="dark"] .prose .highlight .w { color: #6e7681; }
+
 .prose table {
   width: 100%;
   margin: 1.6em 0;
