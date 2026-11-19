@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="290" viewBox="0 0 920 290">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="920" height="290" fill="#f8fafc" rx="12"/>
+
+  <text x="20" y="34" font-family="sans-serif" font-size="16" font-weight="700" fill="#1f2937">之前：访客文件也能建分享</text>
+  <g font-family="sans-serif" font-size="14" fill="#1f2937" text-anchor="middle">
+    <rect x="20" y="48" width="180" height="54" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="110" y="81">点「分享」</text>
+    <rect x="240" y="48" width="180" height="54" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="330" y="81">创建分享记录</text>
+    <rect x="460" y="48" width="180" height="54" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="550" y="81">设有效期 / 密码</text>
+    <rect x="680" y="48" width="180" height="54" rx="10" fill="#fee2e2" stroke="#fca5a5" stroke-width="1.5"/>
+    <text x="770" y="81">发出分享链接</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="2" fill="none">
+    <line x1="200" y1="75" x2="236" y2="75" marker-end="url(#arr)"/>
+    <line x1="420" y1="75" x2="456" y2="75" marker-end="url(#arr)"/>
+    <line x1="640" y1="75" x2="676" y2="75" marker-end="url(#arr)"/>
+  </g>
+  <text x="20" y="134" font-family="sans-serif" font-size="13" fill="#dc2626">⚠ 链接“过期”后，文件仍可通过公开直链访问 —— 有效期和密码都是假的</text>
+
+  <text x="20" y="186" font-family="sans-serif" font-size="16" font-weight="700" fill="#1f2937">现在：直接给公开直链</text>
+  <g font-family="sans-serif" font-size="14" fill="#1f2937" text-anchor="middle">
+    <rect x="20" y="200" width="180" height="54" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="110" y="233">点「分享」</text>
+    <rect x="240" y="200" width="180" height="54" rx="10" fill="#dbeafe" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="330" y="233">复制公开直链</text>
+    <rect x="460" y="200" width="260" height="54" rx="10" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.5"/>
+    <text x="590" y="233">完成：无记录 · 无有效期 · 无密码</text>
+  </g>
+  <g stroke="#94a3b8" stroke-width="2" fill="none">
+    <line x1="200" y1="227" x2="236" y2="227" marker-end="url(#arr)"/>
+    <line x1="420" y1="227" x2="456" y2="227" marker-end="url(#arr)"/>
+  </g>
+  <text x="20" y="282" font-family="sans-serif" font-size="13" fill="#059669">✓ 公开的东西就大大方方地公开，不再用“分享”假装它受保护</text>
+</svg>
